@@ -6,3 +6,7 @@
 autopublish
 insecure
 preserve-inputs
+backbone
+jquery
+underscore
+bootstrap

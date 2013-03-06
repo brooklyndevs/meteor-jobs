@@ -1,0 +1,16 @@
+html, body {
+  background: #F2F2F2;
+}
+
+.iserif {
+  font-family: Georgia, serif;
+  font-style: italic;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.light-text {
+  color: #F2F2F2;
+}
