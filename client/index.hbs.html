@@ -9,12 +9,14 @@
 
       <div class='container'>
         <h1 class='logo'><a href="#" class='brand pull-left'>Meteor Jobs</a></h1>
-        <nav class='pull-right'>      
-          <a id='loginBtn' class='btn'>Login</a>
+        <nav class='pull-right'> 
+          {{> login}}
         </nav>
       </div>
     </div>
   </header>
+
+{{>loginForm}}
 
 <section id="body-section" class='container'>  
   <div class='row-fluid'>
@@ -123,8 +125,5 @@
     &copy; 2013. Note: This is an unofficial job board created by Meteor lovers in Brooklyn, NY.
   </footer>
 </section>
-
-
-
 
 </body>

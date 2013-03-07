@@ -1,6 +1,9 @@
-<template name='loginButton'>
-  <button type='button' class='btn btn-primary' id="loginBtn" data-toggle="modal" href="#login">Login</button>
-  {{>loginForm}}
+<template name='login'>
+	{{#if currentUser}}
+  		<button type='button' class='btn' id="logoutBtn" >Log out</button>
+	{{else}}
+		<button type='button' class='btn' id="loginBtn" data-toggle="modal" href="#login">Login</button>
+	{{/if}}
 </template>
 
 <template name='loginForm'>
@@ -8,3 +11,4 @@
     	<button type='button' class='btn btn-primary' id="githubBtn">Github Login</button>
     </div>
 </template>
+

@@ -1,14 +1,14 @@
-Template.loginButton.events({
-  'click #loginBtn': function(evt) {
-      console.log("login Button Clicked");
-
-    },
-
+Template.loginForm.events({
     'click #githubBtn': function(evt) {
       loginWithGithub();
-
     }
-  
+});
+
+Template.login.events({
+    'click #logoutBtn': function(evt) {
+      console.log("Logout");
+      Meteor.logout();
+    }
 });
 
 Accounts.loginServiceConfiguration.remove({
@@ -33,5 +33,7 @@ function loginWithGithub(){
     }
     $('.modal').modal('hide');
     console.log("we logged in");
+    Session.set("logged", true);
   });
 }
+
