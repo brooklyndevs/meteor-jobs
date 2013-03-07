@@ -4,76 +4,124 @@
 
 <body>
 
-  <h1>:) Hello World!</h1>
+  <header id="header" class='navbar navbar-fixed-top navbar-inverse'>
+    <div class='navbar-inner'>
 
-  <div class="container hide">
-    <header class='row navbar navbar-fixed'>
-        <h1 class='pull-left'>Meteor Jobs</h1>  
-        <div class='pull-right'>
-          <a class='btn'>Browse Listings</a>
-          <a class='btn'>Find Developers</a>
-          <a class='btn btn-success'>Post a Job</a>                    
-        </div>
-    </header>
-
-    <div class='span6'>
-      {{>job_form}}
+      <div class='container'>
+        <h1 class='logo'><a class='brand pull-left'>Meteor Jobs</a></h1>
+        <nav class='pull-right'>      
+          <a id='loginBtn' class='btn'>Login</a>
+        </nav>
+      </div>
     </div>
+  </header>
 
-
+<section id="body-section" class='container'>  
+  <div class='row-fluid'>
+    <p class='iserif lead center-text well'>Reach passionate Meteor developers and let them know you're hiring.</p>
   </div>
-</div>
+  
+  <div id='body-row-fluid' class="row-fluid">    
+    <div id='calls-to-action' class='span4 pull-right'>
+      <div class='well text-center'>
+        <h3>Employers</h3>
+        <p class='lead iserif'>Let the Meteor community know you are hiring.</p>
+        <a class='btn btn-success'>Create a Job Post</a>
+        <a class='btn'>Find Developers</a>
+      </div>        
+      <div class='well text-center'>
+        <h3>Developers</h3>
+        <p class='lead iserif'>Let employers know that you're open to opportunities.</p>
+                  
+        <a class='btn btn-primary'>Create a Profile</a>
+        <a class='btn'>Find Jobs</a>
+      </div>            
+    </div> <!-- calls-to-action -->
+        
+    <div class='pull-left span7'>
+      <article class='row-fluid'>
+        <h3>Featured Meteor Developers</h3>
+        <p class='iserif'>The following developers were selected at random.</p>
+        
+        <div class="input-append pull-right">
+          <input class="span4" id="appendedInputButtons" type="text" placeholder='Location (e.g: Brooklyn, New York)'>
+          <button class="btn" type="button">Search</button>
+        </div>          
+                    
+        <table class='table table-bordered table-striped'>
+          <thead>
+          <tr>
+            <th>Name</th>
+            <th>Location</th>
+          </tr>
+          </thead>
+
+          <tr>
+            <td>
+              John Escobedo
+            </td>
+            <td>
+              Brooklyn, New York
+            </td>
+          </tr>
+          
+          <tr>
+            <td>Eiji Ijichi</td>
+            <td>Tokyo, Japon</td>
+          </tr>
+
+          <tr>
+            <td>Marianna Yesia</td>
+            <td>Tokyo, Japon</td>
+          </tr>
+          
+        </table>
+        <a class='pull-right'>View more Developers</a>
+        
+        <h3>Featured Job Posts</h3>
+        <p class='iserif'>The following were chosen at random.</p>
+                  <table class='table table-bordered table-striped'>
+          <thead>
+          <tr>
+            <th>
+              Title
+            </th>
+            <th>
+              Location
+            </th>
+          </tr>
+          </thead>
+
+          <tr>
+            <td>
+              Looking for passsionate Meteor dev (Telecommuting is ok)
+            </td>
+            <td>
+              LandGreen, GreenLand
+            </td>
+          </tr>
+          
+          <tr>
+            <td>
+              Need experienced Node.js developer to join Meteor team
+            </td>
+            <td>
+              Meteoro, Brazil
+            </td>
+          </tr>
+          
+        </table>
+        <a class='pull-right'>View more Jobs</a>
+      </article>
+    </div>
+    
+  </div> <!-- body-row-fluid -->
+  <footer class='row-fluid footer'>
+    &copy; 2013. Note: This is an unofficial job board created by Meteor lovers in Brooklyn, NY.
+  </footer>
+</section>
+
+
+
+
 </body>
-
-<template name='job_form'>
-  <form class='form-vertical'>
-    <fieldset>
-      <legend>Post a Job</legend>
-        <div class='controls'>
-          <input type='text' placeholder='Title'/>
-          <span class='inline-help'>Will be displayed as the title of this job posting</span>
-        </div>
-
-        <div class='controls'>
-          <input type='text' placeholder='Location' />
-          <span class='inline-help'>City, State where the job is located</span>
-        </div>
-
-        <div class='controls'>
-          <textarea type='text' placeholder='Description'></textarea>
-          <span class='inline-help'>A concise description of the project</span>          
-        </div>
-
-        <div class='control-group'>
-          <label class='radio'>
-            <input type='radio' name='work-time' value='full-time' checked>Full-time
-          </label>
-          <label class='radio'>
-            <input type='radio' name='work-time' value='part-time'>Part-time
-          </label>
-        </div>
-
-        <div class='control-group'>
-          <label class='checkbox'>
-            <input type='checkbox' value=''/>
-            Telecommutable
-          </label>
-          <label class='checkbox'>
-            <input type='checkbox' value=''/>
-            Contract-based
-          </label>
-        </div>
-
-        <div class='controls'>
-          <input type='text' placeholder='Job URL (Optional)' />
-        </div>
-        <div class='controls'>        
-          <input type='text' placeholder='Contact Instructions' />
-        </div>
-        <div class='form-actions'>        
-          <button type='submit' class='btn btn-primary'>Create Job Post</button>
-        </div>
-    </fieldset>
-  </form>
-
-</template>
