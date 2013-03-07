@@ -1,0 +1,52 @@
+<template name='job_form'>
+  <form class='form-vertical'>
+    <fieldset>
+      <legend>Post a Job</legend>
+        <div class='controls'>
+          <input type='text' placeholder='Title'/>
+          <span class='inline-help'>Will be displayed as the title of this job posting</span>
+        </div>
+
+        <div class='controls'>
+          <input type='text' placeholder='Location' />
+          <span class='inline-help'>City, State where the job is located</span>
+        </div>
+
+        <div class='controls'>
+          <textarea type='text' placeholder='Description'></textarea>
+          <span class='inline-help'>A concise description of the project</span>          
+        </div>
+
+        <div class='control-group'>
+          <label class='radio'>
+            <input type='radio' name='work-time' value='full-time' checked>Full-time
+          </label>
+          <label class='radio'>
+            <input type='radio' name='work-time' value='part-time'>Part-time
+          </label>
+        </div>
+
+        <div class='control-group'>
+          <label class='checkbox'>
+            <input type='checkbox' value=''/>
+            Telecommutable
+          </label>
+          <label class='checkbox'>
+            <input type='checkbox' value=''/>
+            Contract-based
+          </label>
+        </div>
+
+        <div class='controls'>
+          <input type='text' placeholder='Job URL (Optional)' />
+        </div>
+        <div class='controls'>        
+          <input type='text' placeholder='Contact Instructions' />
+        </div>
+        <div class='form-actions'>        
+          <button id='job-form-submit' type='submit' class='btn btn-primary'>Create Job Post</button>
+        </div>
+    </fieldset>
+  </form>
+
+</template>
