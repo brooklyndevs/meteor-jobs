@@ -11,6 +11,10 @@ html, body {
   text-align: center;
 }
 
+.small {
+  font-size: 12px;
+}
+
 .logo {
   font-size: 12px;
   color: #F2F2F2;
