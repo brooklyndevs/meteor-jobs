@@ -1,38 +1,53 @@
+<template name='post_a_job'>
+    <div id='job-form' class='span5'>
+      {{> job_form}}
+    </div>
+    <div id='preview' class='offset1 span6'>
+      <div class='row'>
+        <a href='' id="expand-preview" class='btn btn-mini btn-info pull-right'>&laquo; Expand Preview</a>
+      </div>
+      {{> job_post_preview}}
+    </div>
+</template>
+
 <template name='job_form'>
   <form class='form-vertical'>
     <fieldset>
       <legend>Post a Job</legend>
         <div class='controls'>
-          <input type='text' placeholder='Title'/>
-          <span class='inline-help'>Will be displayed as the title of this job posting</span>
+          <input id='post-title' type='text' placeholder='Title'/>
         </div>
 
         <div class='controls'>
-          <input type='text' placeholder='Location' />
-          <span class='inline-help'>City, State where the job is located</span>
+          <input id='post-location' type='text' placeholder='Location'/>
         </div>
 
         <div class='controls'>
-          <textarea type='text' placeholder='Description'></textarea>
-          <span class='inline-help'>A concise description of the project</span>          
+          <textarea id='post-description' type='text' placeholder='Description'></textarea>       
         </div>
 
         <div class='control-group'>
-          <label class='radio'>
-            <input type='radio' name='work-time' value='full-time' checked>Full-time
+          <label class='radio inline'>
+            <input type='radio' id='post-full-time' name='work-schedule' value='full-time' checked>
+            Full-time
           </label>
-          <label class='radio'>
-            <input type='radio' name='work-time' value='part-time'>Part-time
+          <label class='radio inline'>
+            <input type='radio' id='post-part-time' name='work-schedule' value='part-time'>
+            Part-time
+          </label>
+          <label class='radio inline'>
+            <input type='radio' id='post-other-time' name='work-schedule' value='other'>
+            Other
           </label>
         </div>
 
         <div class='control-group'>
           <label class='checkbox'>
-            <input type='checkbox' value=''/>
+            <input id="tele-rb" type='checkbox' value=''/>
             Telecommutable
           </label>
           <label class='checkbox'>
-            <input type='checkbox' value=''/>
+            <input id="contract-rb" type='checkbox' value=''/>
             Contract-based
           </label>
         </div>
@@ -44,9 +59,20 @@
           <input type='text' placeholder='Contact Instructions' />
         </div>
         <div class='form-actions'>        
-          <button id='job-form-submit' type='submit' class='btn btn-primary'>Create Job Post</button>
+          <button id='job-form-submit' type='submit' class='btn btn-primary btn-large'>Publish Job Post</button>
         </div>
     </fieldset>
   </form>
+</template>
 
+<template name='job_post_preview'>
+  <h1>{{post.title}}</h1>
+  <p class='well'>{{shortDescription}}</p>
+
+
+  <h4>Description</h4>
+  <p>{{#markdown}}{{post.description}}{{/markdown}}</p>
+  <footer class='small'>
+    <p>Posted on {{post.date}}</p>
+  </footer>
 </template>

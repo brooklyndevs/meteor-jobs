@@ -10,3 +10,5 @@ backbone
 jquery
 underscore
 bootstrap
+router
+showdown

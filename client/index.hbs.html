@@ -8,7 +8,7 @@
     <div class='navbar-inner'>
 
       <div class='container'>
-        <h1 class='logo'><a href="#" class='brand pull-left'>Meteor Jobs</a></h1>
+        <h1 class='logo'><a href="/" class='brand pull-left'>Meteor Jobs</a></h1>
         <nav class='pull-right'>      
           <a id='loginBtn' class='btn'>Login</a>
         </nav>
@@ -17,114 +17,13 @@
   </header>
 
 <section id="body-section" class='container'>  
-  <div class='row-fluid'>
-    <p class='iserif lead center-text well'>Reach passionate Meteor developers and let them know you're hiring.</p>
-  </div>
-  
-  <div id='body-row-fluid' class="row">    
-    <div id='calls-to-action' class='span4 offset1 pull-right'>
-      <div class='well text-center'>
-        <h3>Employers</h3>
-        <p class='lead iserif'>Let the Meteor community know you are hiring.</p>
-        <a class='btn btn-success'>Create a Job Post</a>
-        <a class='btn'>Find Developers</a>
-      </div>        
-      <div class='well text-center'>
-        <h3>Developers</h3>
-        <p class='lead iserif'>Let employers know that you're open to opportunities.</p>
-                  
-        <a class='btn btn-primary'>Create a Profile</a>
-        <a class='btn'>Find Jobs</a>
-      </div>            
-    </div> <!-- calls-to-action -->        
-    <div class='span7 pull-left'>
-      <article>
-        <h3>Featured Meteor Developers</h3>
-        <p class='iserif'>The following developers were selected at random.</p>
-        
-        <div class="input-append pull-right hide">
-          <input id="appendedInputButtons" type="text" placeholder='Location (e.g: Brooklyn, New York)'>
-          <button class="btn" type="button">Search</button>
-        </div>          
-                    
-        <table class='table table-bordered table-striped'>
-          <thead>
-          <tr>
-            <th>Name</th>
-            <th>Location</th>
-          </tr>
-          </thead>
-
-          <tr>
-            <td>
-              John Escobedo
-            </td>
-            <td>
-              Brooklyn, New York
-            </td>
-          </tr>
-          
-          <tr>
-            <td>Eiji Ijichi</td>
-            <td>Tokyo, Japon</td>
-          </tr>
-
-          <tr>
-            <td>Marianna Yesia</td>
-            <td>Tokyo, Japon</td>
-          </tr>
-          
-        </table>
-        <a class='pull-right'>View more Developers</a>
-        
-        <h3>Featured Job Posts</h3>
-        <p class='iserif'>The following were chosen at random.</p>
-                  <table class='table table-bordered table-striped'>
-          <thead>
-          <tr>
-            <th>
-              Title
-            </th>
-            <th>
-              Location
-            </th>
-          </tr>
-          </thead>
-
-          <tr>
-            <td>
-              Looking for passsionate Meteor dev (Telecommuting is ok)
-            </td>
-            <td>
-              LandGreen, GreenLand
-            </td>
-          </tr>
-          
-          <tr>
-            <td>
-              Need experienced Node.js developer to join Meteor team
-            </td>
-            <td>
-              Meteoro, Brazil
-            </td>
-          </tr>
-          
-        </table>
-        <a class='pull-right'>View more Jobs</a>
-      </article>
-    </div>    
-  </div> <!-- body-row-fluid -->
-
-  <div class="row-fluid">
-    {{> job_form}}
-  </div>
+  <div id='routed-page' class="row-fluid">    
+    {{renderPage}}  
+  </div> <!-- routed-page -->
 
   <footer class='row-fluid footer small center-text'>
     &copy; 2013. Note: This is an unofficial job board created by Meteor lovers in Brooklyn, NY.
   </footer>
 </section>
-
-
-
 
 </body>

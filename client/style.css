@@ -25,6 +25,10 @@ html, body {
   color: #F2F2F2;
 }
 
+.radio.inline { /* Fix for chrome */
+  white-space: nowrap;
+}
+
 #loginBtn {
   margin-top: 15px;
 }
