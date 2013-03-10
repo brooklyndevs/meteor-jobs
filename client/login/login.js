@@ -11,6 +11,17 @@ Template.login.events({
     }
 });
 
+Template.login.username = function() {
+  var username;
+  var user = Meteor.user().services;
+  if(user){
+    username = user.github.username;
+  }
+
+  return username;
+};
+
+
 Accounts.loginServiceConfiguration.remove({
   service: "github"
 });
@@ -23,7 +34,7 @@ Accounts.loginServiceConfiguration.insert({
 
 function loginWithGithub(){
   Meteor.loginWithGithub({
-  requestPermissions: ['user']
+  requestPermissions: []
 
   }, function (err) {
     if (err){
@@ -36,4 +47,11 @@ function loginWithGithub(){
     Session.set("logged", true);
   });
 }
+
+Meteor.autorun(function() {
+  Meteor.subscribe("githubUser");
+});
+
+//Meteor.user().
+
 
