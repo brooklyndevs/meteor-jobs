@@ -26,40 +26,72 @@ Template.job_form.events({
 
   'keyup #post-title': function(e) {
     var title = e.target.value;
-    JobPost.Previews.update(JobPost.previewId, {$set: {title:title}});
+    JobPost.Previews.update(JobPost.previewId, {
+      $set: {
+        title: title
+      }
+    });
     return false;
   },
 
   'keyup #post-location': function(e) {
     var location = e.target.value;
-    JobPost.Previews.update(JobPost.previewId, {$set: {location: location}});
+    JobPost.Previews.update(JobPost.previewId, {
+      $set: {
+        location: location
+      }
+    });
     return false;
   },
 
   'keyup #post-description': function(e) {
     var description = e.target.value;
-    JobPost.Previews.update(JobPost.previewId, {$set: {description: description}});
+    JobPost.Previews.update(JobPost.previewId, {
+      $set: {
+        description: description
+      }
+    });
     return false;
   },
 
   'click #post-full-time': function(e) {
-    JobPost.Previews.update(JobPost.previewId, {$set: {schedule: 'Full-time'}});
+    JobPost.Previews.update(JobPost.previewId, {
+      $set: {
+        schedule: 'Full-time'
+      }
+    });
   },
 
   'click #post-part-time': function(e) {
-    JobPost.Previews.update(JobPost.previewId, {$set: {schedule: 'Part-time'}});
-  },  
+    JobPost.Previews.update(JobPost.previewId, {
+      $set: {
+        schedule: 'Part-time'
+      }
+    });
+  },
 
   'click #post-other-time': function(e) {
-    JobPost.Previews.update(JobPost.previewId, {$set: {schedule: ''}});
-  },  
+    JobPost.Previews.update(JobPost.previewId, {
+      $set: {
+        schedule: ''
+      }
+    });
+  },
 
   'click #tele-rb': function(e) {
-    JobPost.Previews.update(JobPost.previewId, {$set: {telecommutable: e.target.checked}});
+    JobPost.Previews.update(JobPost.previewId, {
+      $set: {
+        telecommutable: e.target.checked
+      }
+    });
   },
 
   'click #contract-rb': function(e) {
-    JobPost.Previews.update(JobPost.previewId, {$set: {contractBased: e.target.checked}});
+    JobPost.Previews.update(JobPost.previewId, {
+      $set: {
+        contractBased: e.target.checked
+      }
+    });
   }
 });
 
@@ -96,10 +128,10 @@ Template.post_a_job.events({
 Template.job_post_preview.helpers({
   shortDescription: function() {
     var post = JobPost.Previews.findOne();
-    if (!post) return;
+    if (!post) return '';
 
     var bold = function(txt) {
-      return '<b>'+txt+'</b>';
+      return '<b>' + txt + '</b>';
     };
 
     var desc = 'This is a';
@@ -114,7 +146,7 @@ Template.job_post_preview.helpers({
 
     if (post.contractBased) {
       desc += ' ' + bold('contract-based');
-    } 
+    }
 
     if (post.telecommutable) {
       if (post.contractBased) {

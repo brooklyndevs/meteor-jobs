@@ -37,6 +37,10 @@ html, body {
   margin-top: 80px;
 }
 
+#post-description {
+  height: 150px;
+}
+
 /* Large desktop */
 @media (min-width: 1200px) {
 
