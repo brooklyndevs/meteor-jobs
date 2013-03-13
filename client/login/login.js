@@ -44,12 +44,12 @@ function loginWithGithub(){
     }
     $('.modal').modal('hide');
     console.log("we logged in");
-    Session.set("logged", true);
   });
 }
 
 Meteor.autorun(function() {
   Meteor.subscribe("githubUser");
+  
 });
 
 //Meteor.user().

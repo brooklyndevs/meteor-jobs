@@ -8,7 +8,7 @@ preserve-inputs
 backbone
 jquery
 underscore
-bootstrap
 accounts-base
 accounts-github
 accounts-password
+bootstrap
