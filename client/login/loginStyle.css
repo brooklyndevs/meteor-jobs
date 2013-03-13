@@ -1,0 +1,13 @@
+#loginBtn{
+  margin-top: 15px;
+}
+#logoutBtn{
+  margin-top: 15px;
+  float:right;
+}
+#welcomeDiv{
+  margin-top: 15px;
+  margin-right: 10px;
+  float:left;
+  color: #F2F2F2;
+}
