@@ -4,33 +4,34 @@
 			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 			<h3>Employer Registration</h3>
 		</div>
-		<form>
+		<form id="registerHere">
 			<div class="modal-body">
-				
 					<fieldset>
 						<table class="table table-bordered">
 						<tr>
 							<td>
 							<label><h4>Company Name:</h4></label>
-							<input type="text" id="companyText">
+							<input type="text" id="companyText" class="textField">
 							<label><h4>Location:</h4></label>
-							<input type="text" id="addressText" placeholder='City, State, Country, Zip-Code'>
+							<input type="text" id="addressText" class="textField" placeholder='City, State, Country, Zip-Code'>
 							<label><h4>Contacts:</h4></label>
-							<input type="text" id="emailText" placeholder='Email'>
-							<input type="text" id="phoneText" placeholder='Phone (Optional)'>
-							<input type="text" id="urlText" placeholder='URL (Optional)'>
+							<input type="text" id="emailText" class="textField" placeholder='Email'>
+							<input type="text" id="phoneText" class="textField" placeholder='Phone (Optional)'>
+							<input type="text" id="urlText" class="textField" placeholder='URL (Optional)'>
 							</td>
 
 							<td>
 							<label><h4>Username:</h4></label>
-							<input type="text" id="usernameText"  placeholder='Username'>
+							<input type="text" id="usernameText" class="textField"  placeholder='Username'>
 							<label><h4>Password:</h4></label>
-							<input type="password" id="password1Text"  placeholder='Password'>
-							<input type="password" id="password2Text"  placeholder='Password Confirm'>
+							<input type="password" id="password1Text" class="textField" placeholder='Password'>
+							<input type="password" id="password2Text" class="textField" placeholder='Confirm Password '>
 							</td>
 
 						</tr>
+
 						</table>
+						<label id="errorRegisterMsg"></label>
 					  </fieldset>
 				
 			</div>

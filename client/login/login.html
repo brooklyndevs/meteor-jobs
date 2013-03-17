@@ -1,6 +1,8 @@
 <template name='login'>
 	{{#if currentUser}}
+	
 	<div id="welcomeDiv">
+		<img src="{{githubAvatar}}" width="50" height="50" id="avatar">
 		Welcome, <a href="#"> {{username}} </a>
 	</div>
   	<button type='button' class='btn' id="logoutBtn" >Log out</button>
@@ -32,13 +34,15 @@
 							<form>
 							  <fieldset>
 							    <label>Username:</label>
-							    <input type="text" >
+							    <input type="text" id="usernameEmployerLogin">
 							    <label>Password:</label>
-							    <input type="password">
+							    <input type="password" id="passwordEmployerLogin">
 							    <br/>
-							    <button type="submit" class="btn btn-primary">Submit</button>
-							    <button type="button" class="btn" id="registerBtn" data-toggle="modal" href="#registerModal" >Register</button>
+							    <label id="employerLoginErroMsg"></label>
+							    <button type="button" class="btn" id="employerLoginBtn">Login</button>
+							    <button type="button" class="btn btn-primary" id="registerBtn" data-toggle="modal" href="#registerModal" >Register</button>
 							  </fieldset>
+
 							</form>
 						</td>
 					</tr>
