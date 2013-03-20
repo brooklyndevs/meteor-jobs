@@ -10,20 +10,23 @@
       <div class='container'>
         <h1 class='logo'><a href="/" class='brand pull-left'>Meteor Jobs</a></h1>
         <nav class='pull-right'>      
-          <a id='loginBtn' class='btn'>Login</a>
+          {{>login}}
         </nav>
       </div>
     </div>
   </header>
 
-<section id="body-section" class='container'>  
-  <div id='routed-page' class="row-fluid">    
-    {{renderPage}}  
-  </div> <!-- routed-page -->
+  {{>loginForm}}
+  {{>registerForm}}
 
-  <footer class='row-fluid footer small center-text'>
-    &copy; 2013. Note: This is an unofficial job board created by Meteor lovers in Brooklyn, NY.
-  </footer>
-</section>
+  <section id="body-section" class='container'>  
+    <div id='routed-page' class="row-fluid">    
+      {{renderPage}}  
+    </div> <!-- routed-page -->
+
+    <footer class='row-fluid footer small center-text'>
+      &copy; 2013. Note: This is an unofficial job board created by Meteor lovers in Brooklyn, NY.
+    </footer>
+  </section>
 
 </body>
