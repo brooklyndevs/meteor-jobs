@@ -1,0 +1,88 @@
+<template name='registerForm'>
+    <div id="registerModal" class="modal hide fade" role="dialog">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			<h3>Employer Registration</h3>
+		</div>
+		<form id="registerHere">
+			<div class="modal-body">
+					<fieldset>
+						<table class="table table-bordered">
+						<tr>
+							<td>
+							<label><h4>Company Name:</h4></label>
+							<input type="text" id="companyText" class="textField">
+							<label><h4>Location:</h4></label>
+							<input type="text" id="addressText" class="textField" placeholder='City, State, Country, Zip-Code'>
+							<label><h4>Contacts:</h4></label>
+							<input type="text" id="emailText" class="textField" placeholder='Email'>
+							<input type="text" id="phoneText" class="textField" placeholder='Phone (Optional)'>
+							<input type="text" id="urlText" class="textField" placeholder='URL (Optional)'>
+							</td>
+
+							<td>
+							<label><h4>Username:</h4></label>
+							<input type="text" id="usernameText" class="textField"  placeholder='Username'>
+							<label><h4>Password:</h4></label>
+							<input type="password" id="password1Text" class="textField" placeholder='Password'>
+							<input type="password" id="password2Text" class="textField" placeholder='Confirm Password '>
+							</td>
+
+						</tr>
+
+						</table>
+						<label id="errorRegisterMsg"></label>
+					  </fieldset>
+				
+			</div>
+			<div class="modal-footer">
+				<center>
+					<button type="button" class="btn btn-primary" id="submitRegister">Submit</button>
+					<button type="reset" class="btn" id="clearBtn">Clear</button>
+				</center>
+			</div>
+		</form>
+<!-- 
+		<table class="table table-bordered">
+			<tbody>
+				<tr>
+					<td>
+					<form>
+						<fieldset>
+							<label><h4>Company Name:</h4></label>
+							<input type="text" id="companyText">
+							<label><h4>Location:</h4></label>
+							<input type="text" id="addressText" placeholder='City, State, Country, Zip-Code'>
+							<label><h4>Contacts:</h4></label>
+							<input type="text" id="phoneText" placeholder='Phone'>
+							<input type="text" id="urlText" placeholder='URL'>
+							<input type="text" id="emailText" placeholder='Email'>
+							<br/><br/>
+						  	<center>
+								<button type="submit" class="btn btn-primary" id="submitRegister">Submit</button>
+								<button type="reset" class="btn" id="clearBtn">Clear</button>
+							</center>
+						  </fieldset>
+					</form>
+					</td>
+
+					<td>
+
+					<div>
+						<div>
+						   	 <input id="address" type="textbox" value="Sydney, NSW">
+     						 <input type="button" value="Geocode" onclick="codeAddress()">
+						</div>
+
+						<div id="googleMap" style="width:300px;height:300px;">
+						</div>
+
+					</div>
+
+					</td>
+				</tr>
+			</tbody>
+		</table> -->
+	</div>
+
+</template>

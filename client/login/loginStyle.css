@@ -1,0 +1,18 @@
+#loginBtn{
+ 	margin-top: 15px;
+}
+#logoutBtn{
+ 	float:both;
+}
+#welcomeDiv{
+	float:both;
+	color: #F2F2F2;
+}
+#avatar{
+	margin-right: 15px;
+	margin-top: 5px;
+	float:left;
+}
+#employerLoginErroMsg{
+	color:red;
+}

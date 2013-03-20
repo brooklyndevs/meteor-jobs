@@ -1,0 +1,13 @@
+#submitRegister, #clearBtn{
+	width:150px;
+	height:40px;
+}
+
+#errorRegisterMsg{
+	color:red;
+	padding-left: 15px;
+}
+/*.textField::-webkit-input-placeholder {
+    color: red;
+}
+*/
