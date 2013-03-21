@@ -24,7 +24,9 @@ Template.loginForm.events({
 Template.login.events({
   'click #logoutBtn': function(evt) {
     console.log("Logout");
-    Meteor.logout();
+    Meteor.logout(function(){
+      window.location.href="/";
+    });
   }
 });
 
@@ -34,7 +36,6 @@ Template.login.username = function() {
   if(user){
     username = user.username;
   }
-
   return username;
 };
 

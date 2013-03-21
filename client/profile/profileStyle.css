@@ -1,0 +1,28 @@
+#leftContainer{
+
+}
+
+#rightContainer{
+
+}
+
+/* Portrait tablet to landscape and desktop */
+@media (max-width: 768px){
+	#leftContainer{
+
+		width: 63%;
+		float:left;
+	}
+	#rightContainer{
+		width:30%;
+		float:left;
+		margin-left:2%;
+	}
+
+}
+
+#personalStatement { 
+	width:90%;
+	height:50px;
+	resize:none;
+}

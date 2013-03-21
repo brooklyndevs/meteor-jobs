@@ -1,0 +1,38 @@
+<template name='profile'>
+	{{#if currentUser}}
+		{{>profileLoggedIn}}
+	{{else}}
+		{{>profileLoggedOut}}
+	{{/if}}
+</template>
+
+<template name='profileLoggedIn'>
+
+
+	<div class="container-fluid">
+		<div class="well row">
+			<img src="{{githubAvatar}}" width="100" height="100" id="avatar">
+			<h1>{{realname}}</h1>
+		</div>
+
+		<div class="row">
+	    	<div class="well span8" id="leftContainer">
+	    		<form>
+	    			<label><h4>Personal Statement</h4></label>
+	    			<textarea id="personalStatement"></textarea> 
+	    		</form>
+	      	
+	   		</div><!--Body content-->
+	    	<div class="well span4" id="rightContainer">
+
+
+	    	</div><!--Sidebar content-->
+	 	</div>
+
+	</div>
+
+</template>
+
+<template name='profileLoggedOut'>
+	You Logged out! Sorry Nothing To See :(
+</template>
