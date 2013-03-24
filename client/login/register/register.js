@@ -188,7 +188,7 @@ window.onload = function(){
 };
 
 Template.registerForm.rendered = function (){
-  console.log("Rendered here");
+  console.log("Rendered registerForm");
 
   //initialize();
 }

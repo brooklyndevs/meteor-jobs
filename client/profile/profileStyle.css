@@ -3,7 +3,7 @@
 }
 
 #rightContainer{
-
+	height:100%;
 }
 
 /* Portrait tablet to landscape and desktop */
@@ -18,11 +18,42 @@
 		float:left;
 		margin-left:2%;
 	}
-
 }
 
-#personalStatement { 
+#personalStatement, #skillExpertise, #education { 
 	width:90%;
 	height:50px;
 	resize:none;
+}
+#additonalInfo{ 
+	width:90%;
+	height:70px;
+	resize:none;
+}
+#experience{
+	width:90%;
+	height:100px;
+	resize:none;
+}
+
+#emailDevProfile, #phoneDevProfile, #addressDevProfile, #urlDevProfile{ 
+	width:60%;
+	height:20px;
+	margin-right:20%;
+}
+
+#viewContact li{
+	display:inline;
+	font-size:40%;
+}
+
+.view{
+	font-size:60%;
+	line-height: 1em;
+}
+#avatarView{
+	float:left;
+}
+#confirmNameBtn{
+	width:35%;
 }

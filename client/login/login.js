@@ -75,6 +75,7 @@ function LoginWithGithub(){
     ParseGitHubJSON();
     
     //Meteor.users.update( { _id:Meteor.userId() }, { $set:{ roles:["Developer"], username: } });
+
   });
 }
 
@@ -90,7 +91,29 @@ function ParseGitHubJSON(){
   })
   .success(function(data) { 
     console.log(data);
-    Meteor.users.update( { _id:Meteor.userId() }, { $set:{ roles:["Developer"], username:data.login, githubAvatrUrl:data.avatar_url } });
+
+    if(Employers.findOne({_id:Meteor.userId()}) === undefined){
+      Meteor.users.update( { _id:Meteor.userId() }, { $set:{ roles:["Developer"], username:data.login, githubAvatrUrl:data.avatar_url } });
+
+      obtainGithubLanguages(data.login, function(langArray){
+        console.log(langArray);
+        Employers.insert( { _id:Meteor.userId(), 
+          name:data.name, 
+          summary:"I am a passionate Meteor Developer currently seeking for a job in "+ data.location + ". I am available for hiring at the moment. My Github username is "+data.login+" and I have "+data.followers+" followers and "+data.public_repos+" Repositories.", 
+          experience:"experience", 
+          skills:langArray, 
+          education:"education", 
+          email:data.email,
+          phone:"",
+          address:data.location, 
+          url:data.url,
+          additional:"additional", 
+
+        });
+
+      });
+
+    }
 
   })
   .error(function() {
@@ -98,4 +121,21 @@ function ParseGitHubJSON(){
   });
 }
 
+function obtainGithubLanguages(username, callback){
+    var gitHubData = $.getJSON("https://api.github.com/users/"+username+"/repos", function() {
+  })
+  .success(function(data) { 
+    var langArray = [];
+    for(var i in data) {
+      if(data[i].language !== null){
+        if($.inArray(data[i].language, langArray) === -1)
+          langArray.push(data[i].language);
+      }
+    }
+    callback(langArray);
+  })
+  .error(function() {
+    console.log("Error Parsing"); 
+  });
 
+}

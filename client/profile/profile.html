@@ -7,25 +7,73 @@
 </template>
 
 <template name='profileLoggedIn'>
-
-
 	<div class="container-fluid">
 		<div class="well row">
 			<img src="{{githubAvatar}}" width="100" height="100" id="avatar">
-			<h1>{{realname}}</h1>
+			<h1>{{devName}}</h1><a id="changeName" rel="popover" href="">Change name...</a>
+			<h4>{{roles}}</h4>
 		</div>
 
 		<div class="row">
 	    	<div class="well span8" id="leftContainer">
-	    		<form>
-	    			<label><h4>Personal Statement</h4></label>
-	    			<textarea id="personalStatement"></textarea> 
+	    		<form class="form-inline">
+	    			<h4>Personal Statement / Summary</h4>
+	    			<textarea id="personalStatement" rel="popover" >{{summary}}</textarea> 
+	    			<br/><br/>
+	    			<h4>Experience</h4>
+	    			<textarea id="experience" rel="popover">{{experience}}</textarea>
+					<br/><br/>
+	    			<h4>Skills / Expertise</h4>
+	    			<textarea id="skillExpertise">{{skills}}</textarea> 
+	    			<br/><br/>
+	    			<h4>Education</h4>
+	    			<textarea id="education">{{education}}</textarea> 
+	    			<br/><br/>
+	    			<h4>Contacts</h4>
+	    			<h5>Email:</h5>
+	    			<input type="text" id="emailDevProfile" value="{{email}}"><br/>
+	    			<h5>Phone:</h5>
+	    			<input type="text" id="phoneDevProfile" value="{{phone}}" placeholder='(Optional)'><br/>
+	    			<h5>Address:</h5>
+	    			<input type="text" id="addressDevProfile" value="{{address}}" placeholder='(Optional)'><br/>
+	    			<h5>URL:</h5>
+	    			<input type="text" id="urlDevProfile" value="{{url}}" placeholder='(Optional)'><br/>
+	    			<br/><br/>
+	    			<h4>Additional Info</h4>
+	    			<textarea id="additonalInfo">{{additional}}</textarea> 
+	    			
 	    		</form>
 	      	
 	   		</div><!--Body content-->
+
 	    	<div class="well span4" id="rightContainer">
-
-
+	    		<h4>View Resume</h4>
+	    		<div class="well">
+					<img src="{{githubAvatar}}" width="50" height="50" id="avatarView">
+					<div id="viewHeader">
+						<center>
+						<h4>{{devName}}</h4>
+						<ul id="viewContact">
+							<li>{{email}}</li>
+							<li>{{phone}}</li>
+							<li>{{address}}</li>
+							<li>{{url}}</li>
+						</ul>
+						</center>
+					</div>
+				</div>
+				<div class="well">
+					<center>Personal Statement / Summary</center>
+					<div class="view">{{summary}}</div><br/>
+					<center>Experience</center>
+					<div class="view">{{experience}}</div><br/>
+					<center>Skills / Expertise</center>
+					<div class="view">{{skills}}</div><br/>
+					<center>Education</center>
+					<div class="view">{{education}}</div><br/>
+					<center>Additional Info</center>
+					<div class="view">{{additional}}</div>
+				</div>
 	    	</div><!--Sidebar content-->
 	 	</div>
 
