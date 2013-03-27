@@ -1,9 +1,9 @@
-Meteor.Router.add({
-  '/profile': 'profile'
+Meteor.Router.add({ 
+  '/developer/profile': 'developerProfile'
 });
 
 //USERS COLLECITONM
-Template.profileLoggedIn.roles = function() {
+Template.developerProfileLoggedIn.roles = function() {
   var roles;
   var user = Meteor.user();
   if(user){
@@ -12,100 +12,100 @@ Template.profileLoggedIn.roles = function() {
   return roles;
 };
 
-Template.profileLoggedIn.githubAvatar = function() {
+Template.developerProfileLoggedIn.avatar = function() {
   var userAvatar;
   var user = Meteor.user();
   if(user){
-    userAvatar = user.githubAvatrUrl;
+    userAvatar = user.avatarUrl;
   }
   return userAvatar;
 };
 
-//EMPLOYERS COLLECTION
-Template.profileLoggedIn.devName = function() {
+//DEVELOPERS COLLECTION
+Template.developerProfileLoggedIn.devName = function() {
   var name;
-  var user = Employers.findOne({_id:Meteor.userId()});
+  var user = Developers.findOne({_id:Meteor.userId()});
   if(user){
     name = user.name;
   }
   return name;
 };
-Template.profileLoggedIn.summary = function() {
+Template.developerProfileLoggedIn.summary = function() {
   var summary;
-  var user = Employers.findOne({_id:Meteor.userId()});
+  var user = Developers.findOne({_id:Meteor.userId()});
   if(user){
     summary = user.summary;
   }
   return summary;
 };
-Template.profileLoggedIn.experience = function() {
+Template.developerProfileLoggedIn.experience = function() {
   var experience;
-  var user = Employers.findOne({_id:Meteor.userId()});
+  var user = Developers.findOne({_id:Meteor.userId()});
   if(user){
     experience = user.experience;
   }
   return experience;
 };
-Template.profileLoggedIn.skills = function() {
+Template.developerProfileLoggedIn.skills = function() {
   var skills;
-  var user = Employers.findOne({_id:Meteor.userId()});
+  var user = Developers.findOne({_id:Meteor.userId()});
   if(user){
     skills = user.skills;
   }
   return skills;
 };
-Template.profileLoggedIn.education = function() {
+Template.developerProfileLoggedIn.education = function() {
   var education;
-  var user = Employers.findOne({_id:Meteor.userId()});
+  var user = Developers.findOne({_id:Meteor.userId()});
   if(user){
     education = user.education;
   }
   return education;
 };
-Template.profileLoggedIn.email = function() {
+Template.developerProfileLoggedIn.email = function() {
   var email;
-  var user = Employers.findOne({_id:Meteor.userId()});
+  var user = Developers.findOne({_id:Meteor.userId()});
   if(user){
     email = user.email;
   }
   return email;
 };
-Template.profileLoggedIn.phone = function() {
+Template.developerProfileLoggedIn.phone = function() {
   var phone;
-  var user = Employers.findOne({_id:Meteor.userId()});
+  var user = Developers.findOne({_id:Meteor.userId()});
   if(user){
     phone = user.phone;
   }
   return phone;
 };
-Template.profileLoggedIn.address = function() {
+Template.developerProfileLoggedIn.address = function() {
   var address;
-  var user = Employers.findOne({_id:Meteor.userId()});
+  var user = Developers.findOne({_id:Meteor.userId()});
   if(user){
     address = user.address;
   }
   return address;
 };
-Template.profileLoggedIn.url = function() {
+Template.developerProfileLoggedIn.url = function() {
   var url;
-  var user = Employers.findOne({_id:Meteor.userId()});
+  var user = Developers.findOne({_id:Meteor.userId()});
   if(user){
     url = user.url;
   }
   return url;
 };
-Template.profileLoggedIn.additional = function() {
+Template.developerProfileLoggedIn.additional = function() {
   var additional;
-  var user = Employers.findOne({_id:Meteor.userId()});
+  var user = Developers.findOne({_id:Meteor.userId()});
   if(user){
     additional = user.additional;
   }
   return additional;
 };
-Template.profileLoggedIn.events({
+Template.developerProfileLoggedIn.events({
   'keyup #personalStatement': function(e) {
     var summary = e.target.value;
-    Employers.update({_id:Meteor.userId()}, {
+    Developers.update({_id:Meteor.userId()}, {
       $set: {
         summary:summary
       }
@@ -113,7 +113,7 @@ Template.profileLoggedIn.events({
   },
   'keyup #experience': function(e) {
     var experience = e.target.value;
-    Employers.update({_id:Meteor.userId()}, {
+    Developers.update({_id:Meteor.userId()}, {
       $set: {
         experience:experience
       }
@@ -121,7 +121,7 @@ Template.profileLoggedIn.events({
   },
   'keyup #skillExpertise': function(e) {
     var skills = e.target.value;
-    Employers.update({_id:Meteor.userId()}, {
+    Developers.update({_id:Meteor.userId()}, {
       $set: {
         skills:skills
       }
@@ -129,7 +129,7 @@ Template.profileLoggedIn.events({
   },
   'keyup #education': function(e) {
     var education = e.target.value;
-    Employers.update({_id:Meteor.userId()}, {
+    Developers.update({_id:Meteor.userId()}, {
       $set: {
         education:education
       }
@@ -137,7 +137,7 @@ Template.profileLoggedIn.events({
   },
   'keyup #emailDevProfile': function(e) {
     var email = e.target.value;
-    Employers.update({_id:Meteor.userId()}, {
+    Developers.update({_id:Meteor.userId()}, {
       $set: {
         email:email
       }
@@ -145,7 +145,7 @@ Template.profileLoggedIn.events({
   },
   'keyup #phoneDevProfile': function(e) {
     var phone = e.target.value;
-    Employers.update({_id:Meteor.userId()}, {
+    Developers.update({_id:Meteor.userId()}, {
       $set: {
         phone:phone
       }
@@ -153,7 +153,7 @@ Template.profileLoggedIn.events({
   },
   'keyup #addressDevProfile': function(e) {
     var address = e.target.value;
-    Employers.update({_id:Meteor.userId()}, {
+    Developers.update({_id:Meteor.userId()}, {
       $set: {
         address:address
       }
@@ -161,7 +161,7 @@ Template.profileLoggedIn.events({
   },
   'keyup #urlDevProfile': function(e) {
     var url = e.target.value;
-    Employers.update({_id:Meteor.userId()}, {
+    Developers.update({_id:Meteor.userId()}, {
       $set: {
         url:url
       }
@@ -169,19 +169,19 @@ Template.profileLoggedIn.events({
   },
   'keyup #additonalInfo': function(e) {
     var additional = e.target.value;
-    Employers.update({_id:Meteor.userId()}, {
+    Developers.update({_id:Meteor.userId()}, {
       $set: {
         additional:additional
       }
     });
   },
-  'click #closeChangeName': function(e) {
-    $('#changeName').popover('hide');
+  'click #closeDevChangeName': function(e) {
+    $('#changeDeveloperName').popover('hide');
   },
-  'click #confirmNameBtn': function(e) {
-    var name = $("#changeNameText").val();
+  'click #confirmDevNameBtn': function(e) {
+    var name = $("#changeDevNameText").val();
     console.log(name);
-    Employers.update({_id:Meteor.userId()}, {
+    Developers.update({_id:Meteor.userId()}, {
       $set: {
         name:name
       }
@@ -191,13 +191,13 @@ Template.profileLoggedIn.events({
 });
 
 Meteor.autorun(function() {
-  Meteor.subscribe("employers");
+  Meteor.subscribe("developers");
 
 });
 
-Template.profileLoggedIn.rendered = function (){
+Template.developerProfileLoggedIn.rendered = function (){
   console.log("Rendered profileLoggedIn");
-  $("#changeName").popover({ title: 'Change Name to:<button class="close" id="closeChangeName">&times;</button>', content: '<input type="text" id="changeNameText"><center><button type="button" class="btn btn-primary" id="confirmNameBtn">Confirm</button></center>', html:'true' });
+  $("#changeDeveloperName").popover({ title: 'Change Name to:<button class="close" id="closeDevChangeName">&times;</button>', content: '<input type="text" id="changeDevNameText"><center><button type="button" class="btn btn-primary" id="confirmDevNameBtn">Change</button></center>', html:'true' });
 
   $("#personalStatement").popover({ title: 'Write Title', content: 'Write Content', trigger:'focus' });
   $("#experience").popover({ title: 'Write Title', content: 'Write Content', trigger:'focus' });

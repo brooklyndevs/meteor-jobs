@@ -8,17 +8,38 @@ Template.registerForm.events({
     'click #submitRegister': function(evt) {
       console.log(ValidateRegistrationForm());
       if(ValidateRegistrationForm()){
+        var companyName = $('#companyText').val();
+        var address = $('#addressText').val();
+        var email = $('#emailText').val();
+        var phone = $('#phoneText').val();
+        var url = $('#urlText').val();
+        var username = $('#usernameText').val();
+        var password1 = $('#password1Text').val();
         console.log("inside");
 
         $('#registerModal').modal('hide');
         $('#clearBtn').trigger('click');
+
         var options = {
           username: username,
           password: password1,
         };
         Accounts.createUser(options, function(){
           console.log(Meteor.userId());
-          Meteor.users.update( { _id:Meteor.userId() }, { $set:{ githubAvatrUrl:"images/unknown.jpg", roles:["Employer"], company:companyName, address:address, email:email, phone:phone, url:url } });
+          Meteor.users.update( { _id:Meteor.userId() }, { $set:{ roles:["Employer"] } });
+          //Employers Creation
+          Employers.insert( { 
+            _id:Meteor.userId(), 
+            company:companyName, 
+            avatarUrl:"/images/unknown.jpg",
+            description:"description info by desfault here",
+            email:email,
+            phone:phone,
+            address:address, 
+            url:url,
+            jobList:[]
+          });
+
         });
         
         // Session.set("currentUser", true);
@@ -45,14 +66,14 @@ Template.registerForm.events({
 function ValidateRegistrationForm(){
   var validate = true;
   
-  companyName = $('#companyText').val();
-  address = $('#addressText').val();
-  email = $('#emailText').val();
-  phone = $('#phoneText').val();
-  url = $('#urlText').val();
-  username = $('#usernameText').val();
-  password1 = $('#password1Text').val();
-  password2 = $('#password2Text').val();
+  var companyName = $('#companyText').val();
+  var address = $('#addressText').val();
+  var email = $('#emailText').val();
+  var phone = $('#phoneText').val();
+  var url = $('#urlText').val();
+  var username = $('#usernameText').val();
+  var password1 = $('#password1Text').val();
+  var password2 = $('#password2Text').val();
   //console.log(companyName);
 
   //Company Validate

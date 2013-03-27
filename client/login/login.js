@@ -39,19 +39,47 @@ Template.login.username = function() {
   return username;
 };
 
-Template.login.githubAvatar = function() {
+Template.login.avatar = function() {
   var userAvatar;
   var user = Meteor.user();
   if(user){
-    userAvatar = user.githubAvatrUrl;
+    userAvatar = user.avatarUrl;
   }
 
   return userAvatar;
 };
 
-// Accounts.loginServiceConfiguration.remove({
-//   service: "github"
-// });
+Template.login.companyAvatar = function() {
+  var userAvatar;
+  var user = Employers.findOne({_id:Meteor.userId()});
+  if(user){
+    userAvatar = user.avatarUrl;
+  }
+
+  return userAvatar;
+};
+
+Template.login.roles = function() {
+  var role;
+  var user = Meteor.user();
+  if(user){
+    role = user.roles;
+    if(role){
+      role=role[0];
+    }
+  }
+  console.log(role);
+  if(role === 'Employer'){
+    return 0;
+  }else{
+    return 1;
+  }
+  
+};
+
+Accounts.loginServiceConfiguration.remove({
+  service: "github"
+});
 
 Accounts.loginServiceConfiguration.insert({
   service: "github",
@@ -92,12 +120,13 @@ function ParseGitHubJSON(){
   .success(function(data) { 
     console.log(data);
 
-    if(Employers.findOne({_id:Meteor.userId()}) === undefined){
-      Meteor.users.update( { _id:Meteor.userId() }, { $set:{ roles:["Developer"], username:data.login, githubAvatrUrl:data.avatar_url } });
+    if(Developers.findOne({_id:Meteor.userId()}) === undefined){
+      Meteor.users.update( { _id:Meteor.userId() }, { $set:{ roles:["Developer"], username:data.login, avatarUrl:data.avatar_url } });
 
       obtainGithubLanguages(data.login, function(langArray){
         console.log(langArray);
-        Employers.insert( { _id:Meteor.userId(), 
+        Developers.insert( { 
+          _id:Meteor.userId(), 
           name:data.name, 
           summary:"I am a passionate Meteor Developer currently seeking for a job in "+ data.location + ". I am available for hiring at the moment. My Github username is "+data.login+" and I have "+data.followers+" followers and "+data.public_repos+" Repositories.", 
           experience:"experience", 

@@ -1,0 +1,44 @@
+<template name='employerProfile'>
+	{{#if currentUser}}
+		{{>employerProfileLoggedIn}}
+	{{else}}
+		{{>profileLoggedOut}}
+	{{/if}}
+</template>
+
+
+<template name='employerProfileLoggedIn'>
+	<div class="container-fluid">
+		<div class="well row">
+			<img src="{{companyAvatar}}" width="100" height="100" id="avatar">
+			<h1>{{company}}</h1><a id="changeEmployerName" rel="popover" href="">Change...</a>
+			<h4>{{roles}}</h4>
+			<h6>{{description}}</h6>
+		</div>
+			
+	
+		<div class="row">
+			<div class="well span8" id="leftContainer">
+
+		    	<div class="well">
+		    		JOB LISTING HERE
+		   		</div>
+		   	</div>
+		   	<div class="well span4" id="rightContainer">
+
+			   		<div class="span10"><h4>Contact</h4></div>
+			   		<div class="span2" id="edit"><a id="changeEmployerContact" rel="popover" href=""><u>Edit</u></a></div>
+
+		
+			   		<center>
+			   		<h6>{{email}}</h6>
+			        <h6>{{phone}}</h6>
+			        <h6><a href="{{url}}" target="_blank">{{url}}</a></h6>
+			        <h6>{{address}}</h6>
+
+		   	</div>
+
+	   	</div>
+
+	</div>
+</template>
