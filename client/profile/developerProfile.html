@@ -9,38 +9,38 @@
 <template name='developerProfileLoggedIn'>
 	<div class="container-fluid">
 		<div class="well row">
-			<img src="{{avatar}}" width="100" height="100" id="avatar">
-			<h1>{{devName}}</h1><a id="changeDeveloperName" rel="popover" href="">Change name...</a>
-			<h4>{{roles}}</h4>
+			<img src="{{user.avatarUrl}}" width="100" height="100" id="avatar">
+			<h1>{{developer.name}}</h1><a id="changeDeveloperName" rel="popover" href="">Change name...</a>
+			<h4>{{user.roles}}</h4>
 		</div>
 
 		<div class="row">
 	    	<div class="well span8" id="leftContainer">
 	    		<form class="form-inline">
 	    			<h4>Personal Statement / Summary</h4>
-	    			<textarea id="personalStatement" rel="popover" >{{summary}}</textarea> 
+	    			<textarea id="personalStatement" rel="popover" >{{developer.summary}}</textarea> 
 	    			<br/><br/>
 	    			<h4>Experience</h4>
-	    			<textarea id="experience" rel="popover">{{experience}}</textarea>
+	    			<textarea id="experience" rel="popover">{{developer.experience}}</textarea>
 					<br/><br/>
 	    			<h4>Skills / Expertise</h4>
-	    			<textarea id="skillExpertise">{{skills}}</textarea> 
+	    			<textarea id="skillExpertise">{{developer.skills}}</textarea> 
 	    			<br/><br/>
 	    			<h4>Education</h4>
-	    			<textarea id="education">{{education}}</textarea> 
+	    			<textarea id="education">{{developer.education}}</textarea> 
 	    			<br/><br/>
 	    			<h4>Contacts</h4>
 	    			<h5>Email:</h5>
-	    			<input type="text" id="emailDevProfile" value="{{email}}"><br/>
+	    			<input type="text" id="emailDevProfile" value="{{developer.email}}"><br/>
 	    			<h5>Phone:</h5>
-	    			<input type="text" id="phoneDevProfile" value="{{phone}}" placeholder='(Optional)'><br/>
+	    			<input type="text" id="phoneDevProfile" value="{{developer.phone}}" placeholder='(Optional)'><br/>
 	    			<h5>Address:</h5>
-	    			<input type="text" id="addressDevProfile" value="{{address}}" placeholder='(Optional)'><br/>
+	    			<input type="text" id="addressDevProfile" value="{{developer.address}}" placeholder='(Optional)'><br/>
 	    			<h5>URL:</h5>
-	    			<input type="text" id="urlDevProfile" value="{{url}}" placeholder='(Optional)'><br/>
+	    			<input type="text" id="urlDevProfile" value="{{developer.url}}" placeholder='(Optional)'><br/>
 	    			<br/><br/>
 	    			<h4>Additional Info</h4>
-	    			<textarea id="additonalInfo">{{additional}}</textarea> 
+	    			<textarea id="additonalInfo">{{developer.additional}}</textarea> 
 	    			
 	    		</form>
 	      	
@@ -49,30 +49,30 @@
 	    	<div class="well span4" id="rightContainer">
 	    		<h4>View Resume</h4>
 	    		<div class="well">
-					<img src="{{avatar}}" width="50" height="50" id="avatarView">
+					<img src="{{user.avatarUrl}}" width="50" height="50" id="avatarView">
 					<div id="viewHeader">
 						<center>
-						<h4>{{devName}}</h4>
+						<h4>{{developer.name}}</h4>
 						<ul id="viewContact">
-							<li>{{email}}</li>
-							<li>{{phone}}</li>
-							<li>{{address}}</li>
-							<li>{{url}}</li>
+							<li>{{developer.email}}</li>
+							<li>{{developer.phone}}</li>
+							<li>{{developer.address}}</li>
+							<li>{{developer.url}}</li>
 						</ul>
 						</center>
 					</div>
 				</div>
 				<div class="well">
 					<center>Personal Statement / Summary</center>
-					<div class="view">{{summary}}</div><br/>
+					<div class="view">{{developer.summary}}</div><br/>
 					<center>Experience</center>
-					<div class="view">{{experience}}</div><br/>
+					<div class="view">{{developer.experience}}</div><br/>
 					<center>Skills / Expertise</center>
-					<div class="view">{{skills}}</div><br/>
+					<div class="view">{{developer.skills}}</div><br/>
 					<center>Education</center>
-					<div class="view">{{education}}</div><br/>
+					<div class="view">{{developer.education}}</div><br/>
 					<center>Additional Info</center>
-					<div class="view">{{additional}}</div>
+					<div class="view">{{developer.additional}}</div>
 				</div>
 	    	</div><!--Sidebar content-->
 	 	</div>

@@ -1,5 +1,5 @@
 //Publish all Record 
-Meteor.publish("githubUser", function() { 
+Meteor.publish("users", function() { 
 	return Meteor.users.find({}, {fields: {}});
 });
 

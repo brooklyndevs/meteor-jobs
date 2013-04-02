@@ -1,0 +1,34 @@
+<template name='publicDeveloperProfile'>
+
+	    <div class="well">
+			<img src="{{users.avatarUrl}}" id="avatarViewPublic">
+			<div id="viewHeaderPublic">
+				<center>
+				<h2>{{developer.name}}</h2>
+				<ul id="viewContact">
+					<li>{{developer.email}}</li>
+					<li>{{developer.phone}}</li>
+					<li>{{developer.address}}</li>
+					<li>{{developer.url}}</li>
+				</ul>
+				</center>
+			</div>
+		</div>
+		<div class="well">
+			<center><h4>Personal Statement / Summary</h4></center>
+			<div class="viewPublic">{{developer.summary}}</div><br/>
+			<center><h4>Experience</h4></center>
+			<div class="viewPublic">{{developer.experience}}</div><br/>
+			<center><h4>Skills / Expertise</h4></center>
+			<div class="viewPublic">{{developer.skills}}</div><br/>
+			<center><h4>Education</h4></center>
+			<div class="viewPublic">{{developer.education}}</div><br/>
+			<center><h4>Additional Info</h4></center>
+			<div class="viewPublic">{{developer.additional}}</div>
+		</div>
+
+</template>
+
+<template name='publicDeveloperProfileError'>
+	No Such Users Found! :(
+</template>

@@ -30,6 +30,7 @@ Template.registerForm.events({
           //Employers Creation
           Employers.insert( { 
             _id:Meteor.userId(), 
+            username:username,
             company:companyName, 
             avatarUrl:"/images/unknown.jpg",
             description:"description info by desfault here",
@@ -42,8 +43,6 @@ Template.registerForm.events({
 
         });
         
-        // Session.set("currentUser", true);
-        // Session.set("username", username);
       }
 
     },
@@ -51,7 +50,7 @@ Template.registerForm.events({
       $("input:focus").css({
         "border-color": "lightgray"
       });
-      //console.log(evt.target.id);
+      
     },
     'click #clearBtn': function(evt) {
       console.log("clear");

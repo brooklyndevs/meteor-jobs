@@ -10,10 +10,10 @@
 <template name='employerProfileLoggedIn'>
 	<div class="container-fluid">
 		<div class="well row">
-			<img src="{{companyAvatar}}" width="100" height="100" id="avatar">
-			<h1>{{company}}</h1><a id="changeEmployerName" rel="popover" href="">Change...</a>
-			<h4>{{roles}}</h4>
-			<h6>{{description}}</h6>
+			<img src="{{employer.avatarUrl}}" width="100" height="100" id="avatar">
+			<h1>{{employer.company}}</h1><a id="changeEmployerName" rel="popover" href="">Change...</a>
+			<h4>{{user.roles}}</h4>
+			<h6>{{employer.description}}</h6>
 		</div>
 			
 	
@@ -31,10 +31,10 @@
 
 		
 			   		<center>
-			   		<h6>{{email}}</h6>
-			        <h6>{{phone}}</h6>
-			        <h6><a href="{{url}}" target="_blank">{{url}}</a></h6>
-			        <h6>{{address}}</h6>
+			   		<h6>{{employer.email}}</h6>
+			        <h6>{{employer.phone}}</h6>
+			        <h6><a href="{{employer.url}}" target="_blank">{{employer.url}}</a></h6>
+			        <h6>{{employer.address}}</h6>
 
 		   	</div>
 

@@ -3,105 +3,16 @@ Meteor.Router.add({
 });
 
 //USERS COLLECITONM
-Template.developerProfileLoggedIn.roles = function() {
-  var roles;
-  var user = Meteor.user();
-  if(user){
-    roles = user.roles;
-  }
-  return roles;
-};
-
-Template.developerProfileLoggedIn.avatar = function() {
-  var userAvatar;
-  var user = Meteor.user();
-  if(user){
-    userAvatar = user.avatarUrl;
-  }
-  return userAvatar;
+Template.developerProfileLoggedIn.user = function() {
+  return Meteor.user();
 };
 
 //DEVELOPERS COLLECTION
-Template.developerProfileLoggedIn.devName = function() {
-  var name;
-  var user = Developers.findOne({_id:Meteor.userId()});
-  if(user){
-    name = user.name;
-  }
-  return name;
+Template.developerProfileLoggedIn.developer = function() {
+  return Developers.findOne({_id:Meteor.userId()});
 };
-Template.developerProfileLoggedIn.summary = function() {
-  var summary;
-  var user = Developers.findOne({_id:Meteor.userId()});
-  if(user){
-    summary = user.summary;
-  }
-  return summary;
-};
-Template.developerProfileLoggedIn.experience = function() {
-  var experience;
-  var user = Developers.findOne({_id:Meteor.userId()});
-  if(user){
-    experience = user.experience;
-  }
-  return experience;
-};
-Template.developerProfileLoggedIn.skills = function() {
-  var skills;
-  var user = Developers.findOne({_id:Meteor.userId()});
-  if(user){
-    skills = user.skills;
-  }
-  return skills;
-};
-Template.developerProfileLoggedIn.education = function() {
-  var education;
-  var user = Developers.findOne({_id:Meteor.userId()});
-  if(user){
-    education = user.education;
-  }
-  return education;
-};
-Template.developerProfileLoggedIn.email = function() {
-  var email;
-  var user = Developers.findOne({_id:Meteor.userId()});
-  if(user){
-    email = user.email;
-  }
-  return email;
-};
-Template.developerProfileLoggedIn.phone = function() {
-  var phone;
-  var user = Developers.findOne({_id:Meteor.userId()});
-  if(user){
-    phone = user.phone;
-  }
-  return phone;
-};
-Template.developerProfileLoggedIn.address = function() {
-  var address;
-  var user = Developers.findOne({_id:Meteor.userId()});
-  if(user){
-    address = user.address;
-  }
-  return address;
-};
-Template.developerProfileLoggedIn.url = function() {
-  var url;
-  var user = Developers.findOne({_id:Meteor.userId()});
-  if(user){
-    url = user.url;
-  }
-  return url;
-};
-Template.developerProfileLoggedIn.additional = function() {
-  var additional;
-  var user = Developers.findOne({_id:Meteor.userId()});
-  if(user){
-    additional = user.additional;
-  }
-  return additional;
-};
+
+
 Template.developerProfileLoggedIn.events({
   'keyup #personalStatement': function(e) {
     var summary = e.target.value;
@@ -196,8 +107,14 @@ Meteor.autorun(function() {
 });
 
 Template.developerProfileLoggedIn.rendered = function (){
+  var dev = Developers.findOne({_id:Meteor.userId()});
+  var name;
+  if(dev){
+    name = dev.name;
+  }
+  console.log(name);
   console.log("Rendered profileLoggedIn");
-  $("#changeDeveloperName").popover({ title: 'Change Name to:<button class="close" id="closeDevChangeName">&times;</button>', content: '<input type="text" id="changeDevNameText"><center><button type="button" class="btn btn-primary" id="confirmDevNameBtn">Change</button></center>', html:'true' });
+  $("#changeDeveloperName").popover({ title: 'Change Name to:<button class="close" id="closeDevChangeName">&times;</button>', content: '<input type="text" id="changeDevNameText" value="'+name+'"><center><button type="button" class="btn btn-primary" id="confirmDevNameBtn">Change</button></center>', html:'true' });
 
   $("#personalStatement").popover({ title: 'Write Title', content: 'Write Content', trigger:'focus' });
   $("#experience").popover({ title: 'Write Title', content: 'Write Content', trigger:'focus' });

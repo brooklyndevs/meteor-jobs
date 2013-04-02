@@ -30,33 +30,14 @@ Template.login.events({
   }
 });
 
-Template.login.username = function() {
-  var username;
-  var user = Meteor.user();
-  if(user){
-    username = user.username;
-  }
-  return username;
+//USERS COLLECITONM
+Template.login.user = function() {
+  return Meteor.user();
 };
 
-Template.login.avatar = function() {
-  var userAvatar;
-  var user = Meteor.user();
-  if(user){
-    userAvatar = user.avatarUrl;
-  }
-
-  return userAvatar;
-};
-
-Template.login.companyAvatar = function() {
-  var userAvatar;
-  var user = Employers.findOne({_id:Meteor.userId()});
-  if(user){
-    userAvatar = user.avatarUrl;
-  }
-
-  return userAvatar;
+//EMPLOYER COLLECTION
+Template.login.employer = function() {
+  return Employers.findOne({_id:Meteor.userId()});
 };
 
 Template.login.roles = function() {
@@ -68,7 +49,7 @@ Template.login.roles = function() {
       role=role[0];
     }
   }
-  console.log(role);
+  console.log("USER ROLE: "+role);
   if(role === 'Employer'){
     return 0;
   }else{
@@ -100,6 +81,7 @@ function LoginWithGithub(){
 
     console.log("we logged in");
     $('#loginModal').modal('hide');
+    window.location.href="/";
     ParseGitHubJSON();
     
     //Meteor.users.update( { _id:Meteor.userId() }, { $set:{ roles:["Developer"], username: } });
@@ -108,7 +90,7 @@ function LoginWithGithub(){
 }
 
 Meteor.autorun(function() {
-  Meteor.subscribe("githubUser");
+  Meteor.subscribe("users");
   
 });
 
@@ -127,6 +109,7 @@ function ParseGitHubJSON(){
         console.log(langArray);
         Developers.insert( { 
           _id:Meteor.userId(), 
+          username:data.login, 
           name:data.name, 
           summary:"I am a passionate Meteor Developer currently seeking for a job in "+ data.location + ". I am available for hiring at the moment. My Github username is "+data.login+" and I have "+data.followers+" followers and "+data.public_repos+" Repositories.", 
           experience:"experience", 
