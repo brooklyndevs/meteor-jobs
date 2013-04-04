@@ -25,7 +25,7 @@ Template.login.events({
   'click #logoutBtn': function(evt) {
     console.log("Logout");
     Meteor.logout(function(){
-      window.location.href="/";
+      Meteor.Router.to('/');
     });
   }
 });
@@ -58,9 +58,9 @@ Template.login.roles = function() {
   
 };
 
-Accounts.loginServiceConfiguration.remove({
-  service: "github"
-});
+// Accounts.loginServiceConfiguration.remove({
+//   service: "github"
+// });
 
 Accounts.loginServiceConfiguration.insert({
   service: "github",
@@ -81,20 +81,15 @@ function LoginWithGithub(){
 
     console.log("we logged in");
     $('#loginModal').modal('hide');
-    window.location.href="/";
-    ParseGitHubJSON();
-    
-    //Meteor.users.update( { _id:Meteor.userId() }, { $set:{ roles:["Developer"], username: } });
+
+    ParseGitHubJSON(function(){
+      Meteor.Router.to('/');
+    });
 
   });
 }
 
-Meteor.autorun(function() {
-  Meteor.subscribe("users");
-  
-});
-
-function ParseGitHubJSON(){
+function ParseGitHubJSON(callback){
   //Get username from actual Github Acct
   var username = Meteor.user().services.github.username;
   var gitHubData = $.getJSON("https://api.github.com/users/"+username, function() {
@@ -130,6 +125,9 @@ function ParseGitHubJSON(){
   })
   .error(function() {
     console.log("Error Parsing"); 
+  })
+  .done(function(){
+    callback();
   });
 }
 
@@ -151,3 +149,8 @@ function obtainGithubLanguages(username, callback){
   });
 
 }
+
+Meteor.autorun(function() {
+  Meteor.subscribe("users");
+  
+});

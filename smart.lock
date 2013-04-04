@@ -2,23 +2,29 @@
   "meteor": {
     "git": "https://github.com/meteor/meteor.git",
     "branch": "master",
-    "commit": "2d8b41a87cec884489ead138b5dfea31487363f3"
+    "commit": "f07715dc70de16a7aab84e56ab0c6cbd9c1f9dc6"
   },
   "dependencies": {
     "basePackages": {
       "router": {},
-      "marked": {}
+      "marked": {},
+      "regulate.js": {}
     },
     "packages": {
       "router": {
         "git": "https://github.com/tmeasday/meteor-router.git",
-        "tag": "v0.4.2",
-        "commit": "82d2895847502b4025370523dba60d597cff4772"
+        "tag": "v0.4.3",
+        "commit": "0691a6e2c4c249ce7d00cd6dc7ad27e1c7330a31"
       },
       "marked": {
         "git": "https://github.com/chuangbo/meteor-marked.git",
-        "tag": "v0.2.5",
-        "commit": "e435075a3fd4bc9103cb713e8c400b54d4d704fe"
+        "tag": "v0.2.8",
+        "commit": "1020dbe058f203b9135438eb61f6e2993323fc80"
+      },
+      "regulate.js": {
+        "git": "https://github.com/eddflrs/regulate-meteor.git",
+        "tag": "v0.1.1",
+        "commit": "68340eb63a197c4925177a8624372d1a2d71e3bf"
       },
       "page-js-ie-support": {
         "git": "https://github.com/tmeasday/meteor-page-js-ie-support.git",

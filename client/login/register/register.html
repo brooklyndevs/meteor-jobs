@@ -11,34 +11,40 @@
 						<tr>
 							<td>
 							<h4>Company Name:</h4>
-							<input type="text" id="companyText" class="textField">
+							<input type="text" name="companyText" id="companyText" class="textField">
 							<h4>Location:</h4>
-							<input type="text" id="addressText" class="textField" placeholder='City, State, Country, Zip-Code'>
+							<input type="text" name="addressText" id="addressText" class="textField" placeholder='City, State, Country, Zip-Code'>
 							<h4>Contacts:</h4>
-							<input type="text" id="emailText" class="textField" placeholder='Email'>
-							<input type="text" id="phoneText" class="textField" placeholder='Phone (Optional)'>
-							<input type="text" id="urlText" class="textField" placeholder='URL (Optional)'>
+							<input type="email" name="emailText" id="emailText" class="textField" placeholder='Email'>
+							<input type="text" name="phoneText" id="phoneText" class="textField" placeholder='Phone (Optional)'>
+							<input type="text" name="urlText" id="urlText" class="textField" placeholder='URL (Optional)'>
 							</td>
 
 							<td>
 							<h4>Username:</h4>
-							<input type="text" id="usernameText" class="textField"  placeholder='Username'>
+							<input type="text" name="usernameText" id="usernameText" class="textField"  placeholder='Username'>
 							<h4>Password:</h4>
-							<input type="password" id="password1Text" class="textField" placeholder='Password'>
-							<input type="password" id="password2Text" class="textField" placeholder='Confirm Password '>
+							<input type="password" name="password1Text" id="password1Text" class="textField" placeholder='Password'>
+							<input type="password" name="password2Text" id="password2Text" class="textField" placeholder='Confirm Password '>
 							</td>
 
 						</tr>
 
 						</table>
-						<text id="errorRegisterMsg"></text>
+						<div id="companyTextErrorRegisterMsg"></div>
+						<div id="addressTextErrorRegisterMsg"></div>
+						<div id="emailTextErrorRegisterMsg"></div>
+						<div id="usernameTextErrorRegisterMsg"></div>
+						<div id="password1TextErrorRegisterMsg"></div>
+						<div id="password2TextErrorRegisterMsg"></div>
+
 					  </fieldset>
 				
 			</div>
 			<div class="modal-footer">
 				<center>
-					<button type="button" class="btn btn-primary" id="submitRegister">Submit</button>
-					<button type="reset" class="btn" id="clearBtn">Clear</button>
+					<input type="submit" class="btn btn-primary" id="submitRegister" value="Submit"/>
+					<input type="reset" class="btn" id="clearBtn" value="Clear"/>
 				</center>
 			</div>
 		</form>
