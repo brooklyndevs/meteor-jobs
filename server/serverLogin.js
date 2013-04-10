@@ -9,43 +9,43 @@ Meteor.users.allow({
    update: function () {return true; }
 });
 
+var ValidationHelpers = {
+	restructureData: function (data) {
+		var restructuredData = {};
+
+		_.each(data, function (fieldObj) {
+			var name = fieldObj.name,
+				val = fieldObj.value;
+				restructuredData[name] = val;
+		});
+
+		return restructuredData;
+	}
+};
 
 Meteor.methods({
 	employersLogin: function (data) {
+		var restructuredData;
 		Regulate.registerHere.validate(data, function (error, data) {
 			if (error) {
 				console.log('Validation FAILED', error);
 			} else {
-				console.log('To be inserted into DB', data);
 
-				//console.log(data.companyText);
-				// $('#registerModal').modal('hide');
-		  //       $('#clearBtn').trigger('click');
+				restructuredData = ValidationHelpers.restructureData(data);
 
-		  //       var options = {
-		  //         username: username,
-		  //         password: password1,
-		  //       };
-		  //       Accounts.createUser(options, function(){
-		  //         console.log(Meteor.userId());
-		  //         Meteor.users.update( { _id:Meteor.userId() }, { $set:{ roles:["Employer"] } });
-		  //         //Employers Creation
-		  //         Employers.insert( { 
-		  //           _id:Meteor.userId(), 
-		  //           username:username,
-		  //           company:companyName, 
-		  //           avatarUrl:"/images/unknown.jpg",
-		  //           description:"description info by desfault here",
-		  //           email:email,
-		  //           phone:phone,
-		  //           address:address, 
-		  //           url:url,
-		  //           jobList:[]
-		  //         });
+				console.log('To be inserted into DB', restructuredData);
 
-		  //       });
+		        var options = {
+		          username: restructuredData.usernameText,
+		          password: restructuredData.password1Text,
+		        };
+		        Accounts.createUser(options);
 
+		        console.log("DATA BEFORE RETURN 1",restructuredData);
+		        
 			}
 		});
+		console.log("DATA BEFORE RETURN 2",restructuredData);
+		return restructuredData;
 	}
 });
