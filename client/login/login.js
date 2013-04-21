@@ -15,6 +15,7 @@ Template.loginForm.events({
           $('#usernameEmployerLogin').val('');
           $('#passwordEmployerLogin').val('');
           $("#employerLoginErroMsg").text('');
+          Meteor.Router.to('/');
         }
 
       });

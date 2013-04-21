@@ -15,8 +15,10 @@
 		</div>
 
 		<div class="row">
-	    	<div class="well span8" id="leftContainer">
+	    	<div class="well span8" id="leftDeveloperContainer">
 	    		<form class="form-inline">
+
+	    			<div id="vResume"><a class="btn btn-small btn-info" type="button" href="profile/{{developer.username}}">View Resume</a></div>
 	    			<h4>Personal Statement / Summary</h4>
 	    			<textarea id="personalStatement" rel="popover" >{{developer.summary}}</textarea> 
 	    			<br/><br/>
@@ -46,8 +48,8 @@
 	      	
 	   		</div><!--Body content-->
 
-	    	<div class="well span4" id="rightContainer">
-	    		<h4>View Resume</h4>
+	    	<div class="well span4" id="rightDeveloperContainer">
+	    		<h4><a href="profile/{{developer.username}}">View Resume </a></h4>
 	    		<div class="well">
 					<img src="{{user.avatarUrl}}" width="50" height="50" id="avatarView">
 					<div id="viewHeader">

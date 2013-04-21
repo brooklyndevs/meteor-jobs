@@ -1,8 +1,9 @@
 #avatarViewPublic{
 	float:left;
 }
-#viewHeaderPublic{
-
+#viewContactPublic li{
+	display:inline;
+	font-size:70%;
 }
 .viewPublic{
 	text-indent: 2em;

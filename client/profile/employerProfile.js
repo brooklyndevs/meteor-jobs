@@ -23,6 +23,7 @@ Template.employerProfileLoggedIn.events({
 	        company:companyname
 	      }
 	    });
+      $('#changeEmployerName').popover('hide');
 	},
   'click #changeLogoBtn': function(e) {
     filepicker.pick( {mimetype: 'image/*'}, function(FPFile){
@@ -52,6 +53,7 @@ Template.employerProfileLoggedIn.events({
 
         }
       });
+      $('#changeEmployerContact').popover('hide');
   }
 });
 

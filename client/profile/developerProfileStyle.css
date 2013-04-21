@@ -1,37 +1,41 @@
-#leftContainer{
+#leftDeveloperContainer{
 
 }
-
-#rightContainer{
+#vResume{
+	float:right;
+	display:none;
+}
+#rightDeveloperContainer{
 	height:100%;
 }
 
 /* Portrait tablet to landscape and desktop */
-@media (max-width: 768px){
-	#leftContainer{
+@media (max-width: 767px){
+/*	#leftContainer{
 
 		width: 63%;
 		float:left;
+	}*/
+	#vResume{
+		display:inline;
 	}
-	#rightContainer{
-		width:30%;
-		float:left;
-		margin-left:2%;
+	#rightDeveloperContainer{
+		display: none;
 	}
 }
 
 #personalStatement, #skillExpertise, #education { 
-	width:90%;
+	width:98%;
 	height:50px;
 	resize:none;
 }
 #additonalInfo{ 
-	width:90%;
+	width:98%;
 	height:70px;
 	resize:none;
 }
 #experience{
-	width:90%;
+	width:98%;
 	height:100px;
 	resize:none;
 }
