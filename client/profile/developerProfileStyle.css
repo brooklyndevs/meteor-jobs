@@ -23,7 +23,9 @@
 		display: none;
 	}
 }
-
+#viewHeader, #headerDeveloper{
+	overflow-wrap: break-word;
+}
 #personalStatement, #skillExpertise, #education { 
 	width:98%;
 	height:50px;
@@ -49,10 +51,12 @@
 #viewContact li{
 	display:inline;
 	font-size:40%;
+	overflow-wrap: break-word;
 }
 .view{
 	font-size:60%;
 	line-height: 1em;
+	overflow-wrap: break-word;
 }
 #avatarView{
 	float:left;

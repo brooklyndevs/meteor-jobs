@@ -10,8 +10,10 @@
 	<div class="container-fluid">
 		<div class="well row">
 			<img src="{{user.avatarUrl}}" width="100" height="100" id="avatar">
-			<h1>{{developer.name}}</h1><a id="changeDeveloperName" rel="popover" href="">Change name...</a>
-			<h4>{{user.roles}}</h4>
+			<div id="headerDeveloper">
+				<h1>{{developer.name}}</h1><a id="changeDeveloperName" rel="popover" href="">Change name...</a>
+				<h4>{{user.roles}}</h4>
+			</div>
 		</div>
 
 		<div class="row">

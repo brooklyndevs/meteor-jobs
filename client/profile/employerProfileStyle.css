@@ -4,3 +4,6 @@
 #addJobPostinProfile{
 	float:right;
 }
+#employerContactInfo, #employerHeaderInfo{
+	overflow-wrap: break-word;
+}

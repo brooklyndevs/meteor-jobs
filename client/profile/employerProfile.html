@@ -11,9 +11,11 @@
 	<div class="container-fluid">
 		<div class="well row">
 			<img src="{{employer.avatarUrl}}" width="100" height="100" id="avatar">
-			<h1>{{employer.company}}</h1><a id="changeEmployerName" rel="popover" href="">Change...</a>
-			<h4>{{user.roles}}</h4>
-			<h6>{{employer.description}}</h6>
+			<div id="employerHeaderInfo">
+				<h1>{{employer.company}}</h1><a id="changeEmployerName" rel="popover" href="">Change...</a>
+				<h4>{{user.roles}}</h4>
+				<h6>{{employer.description}}</h6>
+			</div>
 		</div>
 			
 	
@@ -58,13 +60,14 @@
 			   	<div class="span10"><h4>Contact</h4></div>
 			   	<div class="span2" id="edit"><a id="changeEmployerContact" rel="popover" href=""><u>Edit</u></a></div>
 
-		
+				<div id="employerContactInfo">
 			   	<center>
 			   		<h6>{{employer.email}}</h6>
 			        <h6>{{employer.phone}}</h6>
 			        <h6><a href="{{employer.url}}" target="_blank">{{employer.url}}</a></h6>
 			        <h6>{{employer.address}}</h6>
 			    </center>
+				</div>
 		   	</div>
 
 	   	</div>
