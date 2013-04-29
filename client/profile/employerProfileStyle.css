@@ -1,0 +1,9 @@
+#edit{
+	font-size:80%;
+}
+#addJobPostinProfile{
+	float:right;
+}
+#employerContactInfo, #employerHeaderInfo{
+	overflow-wrap: break-word;
+}

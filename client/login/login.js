@@ -15,6 +15,7 @@ Template.loginForm.events({
           $('#usernameEmployerLogin').val('');
           $('#passwordEmployerLogin').val('');
           $("#employerLoginErroMsg").text('');
+          Meteor.Router.to('/');
         }
 
       });
@@ -24,28 +25,38 @@ Template.loginForm.events({
 Template.login.events({
   'click #logoutBtn': function(evt) {
     console.log("Logout");
-    Meteor.logout();
+    Meteor.logout(function(){
+      Meteor.Router.to('/');
+    });
   }
 });
 
-Template.login.username = function() {
-  var username;
-  var user = Meteor.user();
-  if(user){
-    username = user.username;
-  }
-
-  return username;
+//USERS COLLECITONM
+Template.login.user = function() {
+  return Meteor.user();
 };
 
-Template.login.githubAvatar = function() {
-  var userAvatar;
+//EMPLOYER COLLECTION
+Template.login.employer = function() {
+  return Employers.findOne({_id:Meteor.userId()});
+};
+
+Template.login.roles = function() {
+  var role;
   var user = Meteor.user();
   if(user){
-    userAvatar = user.githubAvatrUrl;
+    role = user.roles;
+    if(role){
+      role=role[0];
+    }
   }
-
-  return userAvatar;
+  console.log("USER ROLE: "+role);
+  if(role === 'Employer'){
+    return 0;
+  }else{
+    return 1;
+  }
+  
 };
 
 // Accounts.loginServiceConfiguration.remove({
@@ -71,30 +82,76 @@ function LoginWithGithub(){
 
     console.log("we logged in");
     $('#loginModal').modal('hide');
-    ParseGitHubJSON();
-    
-    //Meteor.users.update( { _id:Meteor.userId() }, { $set:{ roles:["Developer"], username: } });
+
+    ParseGitHubJSON(function(){
+      Meteor.Router.to('/');
+    });
+
   });
 }
 
-Meteor.autorun(function() {
-  Meteor.subscribe("githubUser");
-  
-});
-
-function ParseGitHubJSON(){
+function ParseGitHubJSON(callback){
   //Get username from actual Github Acct
   var username = Meteor.user().services.github.username;
   var gitHubData = $.getJSON("https://api.github.com/users/"+username, function() {
   })
   .success(function(data) { 
     console.log(data);
-    Meteor.users.update( { _id:Meteor.userId() }, { $set:{ roles:["Developer"], username:data.login, githubAvatrUrl:data.avatar_url } });
+
+    if(Developers.findOne({_id:Meteor.userId()}) === undefined){
+      Meteor.users.update( { _id:Meteor.userId() }, { $set:{ roles:["Developer"], username:data.login, avatarUrl:data.avatar_url } });
+
+      obtainGithubLanguages(data.login, function(langArray){
+        console.log(langArray);
+        Developers.insert( { 
+          _id:Meteor.userId(), 
+          username:data.login, 
+          name:data.name, 
+          summary:"I am a passionate Meteor Developer currently seeking for a job in "+ data.location + ". I am available for hiring at the moment. My Github username is "+data.login+" and I have "+data.followers+" followers and "+data.public_repos+" Repositories.", 
+          experience:"experience", 
+          skills:langArray, 
+          education:"education", 
+          email:data.email,
+          phone:"",
+          address:data.location, 
+          url:data.url,
+          additional:"additional", 
+
+        });
+
+      });
+
+    }
 
   })
   .error(function() {
     console.log("Error Parsing"); 
+  })
+  .done(function(){
+    callback();
   });
 }
 
+function obtainGithubLanguages(username, callback){
+    var gitHubData = $.getJSON("https://api.github.com/users/"+username+"/repos", function() {
+  })
+  .success(function(data) { 
+    var langArray = [];
+    for(var i in data) {
+      if(data[i].language !== null){
+        if($.inArray(data[i].language, langArray) === -1)
+          langArray.push(data[i].language);
+      }
+    }
+    callback(langArray);
+  })
+  .error(function() {
+    console.log("Error Parsing"); 
+  });
 
+}
+
+Meteor.autorun(function() {
+  Meteor.subscribe("users");
+  
+});

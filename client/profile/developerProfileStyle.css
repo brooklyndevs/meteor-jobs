@@ -1,0 +1,66 @@
+#leftDeveloperContainer{
+
+}
+#vResume{
+	float:right;
+	display:none;
+}
+#rightDeveloperContainer{
+	height:100%;
+}
+
+/* Portrait tablet to landscape and desktop */
+@media (max-width: 767px){
+/*	#leftContainer{
+
+		width: 63%;
+		float:left;
+	}*/
+	#vResume{
+		display:inline;
+	}
+	#rightDeveloperContainer{
+		display: none;
+	}
+}
+#viewHeader, #headerDeveloper{
+	overflow-wrap: break-word;
+}
+#personalStatement, #skillExpertise, #education { 
+	width:98%;
+	height:50px;
+	resize:none;
+}
+#additonalInfo{ 
+	width:98%;
+	height:70px;
+	resize:none;
+}
+#experience{
+	width:98%;
+	height:100px;
+	resize:none;
+}
+
+#emailDevProfile, #phoneDevProfile, #addressDevProfile, #urlDevProfile{ 
+	width:60%;
+	height:20px;
+	margin-right:20%;
+}
+
+#viewContact li{
+	display:inline;
+	font-size:40%;
+	overflow-wrap: break-word;
+}
+.view{
+	font-size:60%;
+	line-height: 1em;
+	overflow-wrap: break-word;
+}
+#avatarView{
+	float:left;
+}
+#confirmNameBtn{
+	width:35%;
+}

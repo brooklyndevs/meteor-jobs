@@ -16,3 +16,7 @@
 #employerLoginErroMsg{
 	color:red;
 }
+
+#usernameEmployerLogin, #passwordEmployerLogin{ 
+	width:80%;
+}

@@ -3,7 +3,7 @@
 	height:40px;
 }
 
-#errorRegisterMsg{
+#companyTextErrorRegisterMsg, #addressTextErrorRegisterMsg, #emailTextErrorRegisterMsg, #usernameTextErrorRegisterMsg, #password1TextErrorRegisterMsg, #password2TextErrorRegisterMsg{
 	color:red;
 	padding-left: 15px;
 }

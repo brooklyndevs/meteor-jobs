@@ -1,0 +1,15 @@
+#avatarViewPublic{
+	float:left;
+}
+#viewContactPublic li{
+	display:inline;
+	font-size:70%;
+	overflow-wrap: break-word;
+}
+.viewPublic{
+	text-indent: 2em;
+	overflow-wrap: break-word;
+}
+#headerDeveloperPublic{
+	overflow-wrap: break-word;
+}

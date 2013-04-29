@@ -4,37 +4,19 @@ Template.loginForm.events({
       $('#loginModal').modal('hide');
     }
 });
+
+
 Template.registerForm.events({
-    'click #submitRegister': function(evt) {
-      console.log(ValidateRegistrationForm());
-      if(ValidateRegistrationForm()){
-        console.log("inside");
-
-        $('#registerModal').modal('hide');
-        $('#clearBtn').trigger('click');
-        var options = {
-          username: username,
-          password: password1,
-        };
-        Accounts.createUser(options, function(){
-          console.log(Meteor.userId());
-          Meteor.users.update( { _id:Meteor.userId() }, { $set:{ githubAvatrUrl:"images/unknown.jpg", roles:["Employer"], company:companyName, address:address, email:email, phone:phone, url:url } });
-        });
-        
-        // Session.set("currentUser", true);
-        // Session.set("username", username);
-      }
-
-    },
     'click .textField': function(evt) {
+      $("#"+evt.target.id + "ErrorRegisterMsg").text('');
       $("input:focus").css({
         "border-color": "lightgray"
       });
-      //console.log(evt.target.id);
+      
     },
     'click #clearBtn': function(evt) {
       console.log("clear");
-      $('#errorRegisterMsg').text('');
+      $('#companyTextErrorRegisterMsg, #addressTextErrorRegisterMsg, #emailTextErrorRegisterMsg, #usernameTextErrorRegisterMsg, #password1TextErrorRegisterMsg, #password2TextErrorRegisterMsg').text('');
       $(".textField").css({
         "border-color": "lightgray"
       });
@@ -42,91 +24,6 @@ Template.registerForm.events({
 });
 
 
-function ValidateRegistrationForm(){
-  var validate = true;
-  
-  companyName = $('#companyText').val();
-  address = $('#addressText').val();
-  email = $('#emailText').val();
-  phone = $('#phoneText').val();
-  url = $('#urlText').val();
-  username = $('#usernameText').val();
-  password1 = $('#password1Text').val();
-  password2 = $('#password2Text').val();
-  //console.log(companyName);
-
-  //Company Validate
-  if(companyName === ''){
-    highlightRed("#companyText");
-    $("#errorRegisterMsg").text("Warning: Missing Fields");
-    validate = false;
-  }
-
-  //Address Validate
-  if(address === ''){
-    highlightRed("#addressText");
-    $("#errorRegisterMsg").text("Warning: Missing Fields");
-    validate = false;
-  }
-
-  //Email Validate
-  if(email === ''){
-    highlightRed("#emailText");
-    $("#errorRegisterMsg").text("Warning: Missing Fields");
-    validate = false;
-  }else if(email.indexOf(" ") !== -1 || email.indexOf("@") === -1 || email.indexOf(".com") === -1 ){
-    highlightRed("#emailText");
-    $("#errorRegisterMsg").text("Warning: Invalid Email");
-    validate=false;
-  }
-
-  //Username Validate
-  var usernameArray =[];
-  Meteor.users.find({}).forEach(function(user){
-    usernameArray.push(user.username);
-  });
-  console.log(usernameArray);
-  if(username === ''){
-    highlightRed("#usernameText");
-    $("#errorRegisterMsg").text("Warning: Missing Fields");
-    validate = false;
-  }else if(username.indexOf(" ") !== -1){
-    $("#errorRegisterMsg").text("Warning: Username cannot contain SPACE");
-    highlightRed("#usernameText");
-    validate = false;
-  }else if(usernameArray.indexOf(username) !== -1){
-    $("#errorRegisterMsg").text("Warning: Username Already Exist");
-    highlightRed("#usernameText");
-    validate = false;
-  }
-
-  //Password Validate
-  if(password1 === ''|| password2 === ''){
-    highlightRed("#password1Text");
-    highlightRed("#password2Text");
-    $("#errorRegisterMsg").text("Warning: Missing Fields");
-    validate = false;
-  }else if(password1.length <= 5 && password1.length <= 5){
-    highlightRed("#password1Text");
-    highlightRed("#password2Text");
-    $("#errorRegisterMsg").text("Warning: Password must contain at LEAST 5 character");
-    validate = false;
-  }else if(password1 !== password2){
-    highlightRed("#password1Text");
-    highlightRed("#password2Text");
-    $("#errorRegisterMsg").text("Warning: Password Not Matching");
-    validate = false;
-  }else if(password1 === password2){
-      $("#password2Text").css({
-        "border-color": "lightgray"
-      });
-      $("#password1Text").css({
-        "border-color": "lightgray"
-      });
-  }
-
-  return validate;
-}
 function highlightRed(selector){
   $(selector).css({
     "outline": "none",
@@ -177,8 +74,68 @@ function highlightRed(selector){
 //   });
 // };
 Meteor.startup(function() {
- // window.onload = initialize;
-  //Meteor.setTimeout(function(){initialize()},5000);
+  Regulate.registerHere.onSubmit(function (error, data) {
+    if (error) {
+      console.log('Validation FAILED', error);
+      //console.log('Validation FAILED', error.addressText[0]);
+      for(e in error){
+          console.log(e); 
+          highlightRed('#'+e);
+      }
+      $("#companyTextErrorRegisterMsg").text(error.companyText);
+      $("#addressTextErrorRegisterMsg").text(error.addressText);
+      $("#emailTextErrorRegisterMsg").text(error.emailText);
+      $("#usernameTextErrorRegisterMsg").text(error.usernameText);
+      $("#password1TextErrorRegisterMsg").text(error.password1Text);
+      $("#password2TextErrorRegisterMsg").text(error.password2Text);
+
+    } else {
+      console.log('PASSSED', data);
+
+      //data[0].value = '';
+      Meteor.call('employersLogin', data, function(error, result){
+        if(error){
+          console.log("SUPER ERROR After VALIDATION ", error);
+        }else{
+
+          console.log("Result data",result);
+          Meteor.loginWithPassword(result.usernameText, result.password1Text, function(error){
+
+            if(error){
+              console.log("login Error",error);
+
+              return;
+            }
+            console.log("Login successs");
+
+            $('#registerModal').modal('hide');
+            $('#clearBtn').trigger('click');
+
+            Meteor.users.update( { _id:Meteor.userId() }, { $set:{ roles:["Employer"] } });
+                //Employers Creation
+            Employers.insert( { 
+              _id:Meteor.userId(), 
+              username:result.usernameText,
+              company:result.companyText, 
+              avatarUrl:"/images/unknown.jpg",
+              description:"description info by desfault here",
+              email:result.emailText,
+              phone:result.phoneText,
+              address:result.addressText, 
+              url:result.urlText,
+              jobList:[]
+            });
+            
+
+          });
+
+        }
+      });
+
+      
+    }
+  });
+
 });
 
 
@@ -188,7 +145,7 @@ window.onload = function(){
 };
 
 Template.registerForm.rendered = function (){
-  console.log("Rendered here");
+  console.log("Rendered registerForm");
 
   //initialize();
 }

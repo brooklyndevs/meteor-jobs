@@ -1,0 +1,65 @@
+<template name='publicEmployerProfile'>
+	<div class="container-fluid">
+		<div class="well row">
+			<img src="{{employer.avatarUrl}}" width="100" height="100" id="avatar">
+			<div id="employerPublicHeaderInfo">
+				<h1>{{employer.company}}</h1>
+				<h6>{{employer.description}}</h6>
+			</div>
+		</div>
+			
+	
+		<div class="row">
+			<div class="well span8" id="leftContainer">
+		    	<h5>"{{employer.company}}" Job Posts</h5>
+		        <table class='table table-bordered table-striped'>
+		        <thead>
+		        <tr>
+		          <th>
+		            Title
+		          </th>
+		          <th>
+		            Location
+		          </th>
+		        </tr>
+		        </thead>
+
+		        <tr>
+		          <td>
+		            Looking for passsionate Meteor dev (Telecommuting is ok)
+		          </td>
+		          <td>
+		            LandGreen, GreenLand
+		          </td>
+		        </tr>
+		        
+		        <tr>
+		          <td>
+		            Need experienced Node.js developer to join Meteor team
+		          </td>
+		          <td>
+		            Meteoro, Brazil
+		          </td>
+		        </tr>
+	          
+	        	</table>
+		   	</div>
+		   	<div class="well span4" id="rightContainer">
+
+			   	<div class="span10"><h4>Contact</h4></div>		
+			   	<div id="employerPublicContactInfo">
+			   	<center>
+			   		<h6>{{employer.email}}</h6>
+			        <h6>{{employer.phone}}</h6>
+			        <h6><a href="{{employer.url}}" target="_blank">{{employer.url}}</a></h6>
+			        <h6>{{employer.address}}</h6>
+			    </center>
+				</div>
+		   	</div>
+
+	   	</div>
+
+	</div>
+	</div>
+
+</template>

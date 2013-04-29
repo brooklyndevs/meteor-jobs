@@ -2,8 +2,14 @@
 	{{#if currentUser}}
 	
 	<div id="welcomeDiv">
-		<img src="{{githubAvatar}}" width="50" height="50" id="avatar">
-		Welcome, <a href="#"> {{username}} </a>
+		Welcome, 
+		{{#if roles}}
+			<img src="{{user.avatarUrl}}" width="50" height="50" id="avatar">
+			<a href="/developer/profile"> {{user.username}} </a>
+		{{else}}
+			<img src="{{employer.avatarUrl}}" width="50" height="50" id="avatar">
+			<a href="/employer/profile"> {{user.username}} </a>
+		{{/if}}
 	</div>
   	<button type='button' class='btn' id="logoutBtn" >Log out</button>
   
@@ -33,12 +39,11 @@
 						<td>
 							<form>
 							  <fieldset>
-							    <label>Username:</label>
-							    <input type="text" id="usernameEmployerLogin">
-							    <label>Password:</label>
-							    <input type="password" id="passwordEmployerLogin">
-							    <br/>
-							    <label id="employerLoginErroMsg"></label>
+							    Username:<br/>
+							    <input type="text" id="usernameEmployerLogin"><br/>
+							    Password:<br/>
+							    <input type="password" id="passwordEmployerLogin"><br/>
+							    <div id="employerLoginErroMsg"></div>
 							    <button type="button" class="btn" id="employerLoginBtn">Login</button>
 							    <button type="button" class="btn btn-primary" id="registerBtn" data-toggle="modal" href="#registerModal" >Register</button>
 							  </fieldset>
