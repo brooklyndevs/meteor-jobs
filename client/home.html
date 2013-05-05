@@ -16,7 +16,7 @@
         <h3>Developers</h3>
         <p class='lead iserif'>Let employers know that you're open to opportunities.</p>
                   
-        <a class='btn btn-primary'>Create a Profile</a>
+        <a class='btn btn-primary' id="createProfileBtn">Create a Profile</a>
         <a class='btn'>Find Jobs</a>
       </div>            
     </div> <!-- calls-to-action -->        
@@ -37,8 +37,19 @@
             <th>Location</th>
           </tr>
           </thead>
-
-          <tr>
+             {{#if featuredDevelopers.count}}
+                  {{#each featuredDevelopers }}
+                  <tr>
+                    <td>
+                      {{name}}
+                    </td>
+                    <td>
+                      {{address}}
+                    </td>
+                  </tr>
+                  {{/each}}
+              {{/if}}
+<!--           <tr>
             <td>
               John Escobedo
             </td>
@@ -55,7 +66,7 @@
           <tr>
             <td>Marianna Yesia</td>
             <td>Tokyo, Japon</td>
-          </tr>
+          </tr> -->
           
         </table>
         <a class='pull-right'>View more Developers</a>
