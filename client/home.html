@@ -37,11 +37,11 @@
             <th>Location</th>
           </tr>
           </thead>
-             {{#if featuredDevelopers.count}}
-                  {{#each featuredDevelopers }}
+              {{#if featuredDevelopers}}
+                  {{#each featuredDevelopers}}
                   <tr>
                     <td>
-                      {{name}}
+                      <a href="developer/profile/{{username}}">{{name}}</a>
                     </td>
                     <td>
                       {{address}}

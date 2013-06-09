@@ -54,11 +54,43 @@ Template.developerProfileLoggedIn.events({
       }
     });
   },
+  'click #emailCheckboxDevProfile': function(e) {
+    console.log("Email Allow Clicked");
+    var checked;
+    if(e.target.checked) {
+      checked = true;
+    }
+    else {
+      checked = false;
+    }
+
+    Developers.update({_id:Meteor.userId()}, {
+      $set: {
+        emailAllow:checked
+      }
+    });
+  },
   'keyup #phoneDevProfile': function(e) {
     var phone = e.target.value;
     Developers.update({_id:Meteor.userId()}, {
       $set: {
         phone:phone
+      }
+    });
+  },
+  'click #phoneCheckboxDevProfile': function(e) {
+    console.log("Phone Allow Clicked");
+    var checked;
+    if(e.target.checked) {
+      checked = true;
+    }
+    else {
+      checked = false;
+    }
+
+    Developers.update({_id:Meteor.userId()}, {
+      $set: {
+        phoneAllow:checked
       }
     });
   },
@@ -108,10 +140,16 @@ Meteor.autorun(function() {
 
 Template.developerProfileLoggedIn.rendered = function (){
   var dev = Developers.findOne({_id:Meteor.userId()});
-  var name;
+  var name, phoneAllow, emailAllow;
   if(dev){
     name = dev.name;
+    phoneAllow = dev.phoneAllow;
+    emailAllow = dev.emailAllow;
   }
+
+  $('#phoneCheckboxDevProfile').attr('checked', phoneAllow); 
+  $('#emailCheckboxDevProfile').attr('checked', emailAllow); 
+
   console.log(name);
   console.log("Rendered profileLoggedIn");
   $("#changeDeveloperName").popover({ title: 'Change Name to:<button class="close" id="closeDevChangeName">&times;</button>', content: '<input type="text" id="changeDevNameText" value="'+name+'"><center><button type="button" class="btn btn-primary" id="confirmDevNameBtn">Change</button></center>', html:'true' });

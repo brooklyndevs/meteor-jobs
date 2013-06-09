@@ -8,7 +8,16 @@
 #rightDeveloperContainer{
 	height:100%;
 }
-
+.allowContact{
+/*	float:right;*/
+/*	margin-top:-15px;*/
+	margin-left:2px;
+}
+#call, #email{
+	height:10px;
+	font-size: 11px;
+	line-height: 11px;
+}
 /* Portrait tablet to landscape and desktop */
 @media (max-width: 767px){
 /*	#leftContainer{
@@ -47,7 +56,9 @@
 	height:20px;
 	margin-right:20%;
 }
-
+#emailCheclboxDevProfile, #phoneCheclboxDevProfile{
+	margin-left:5px;
+}
 #viewContact li{
 	display:inline;
 	font-size:40%;
