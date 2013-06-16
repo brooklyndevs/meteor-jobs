@@ -10,11 +10,22 @@ Template.home.featuredDevelopers = function() {
 Template.home.events({
 	'click #createProfileBtn': function(e) {
 		if(Meteor.user() === null){
-			//window.document.getElementById('loginBtn').click();
-			console.log("not loggin");
+			window.document.getElementById('loginBtn').click();
+			//console.log("not loggin");
 		}else{
 			window.document.getElementById('profile').click();
 			console.log("login");
+		}
+		
+	},
+	'click #viewMoreDevelopersBtn': function(e) {
+		console.log("clicked");
+		if(Meteor.user() === null){
+			window.document.getElementById('loginBtn').click();
+			//console.log("not loggin");
+		}else{
+			Meteor.Router.to('/developers');
+			// console.log("login");
 		}
 		
 	}
