@@ -11,48 +11,48 @@
 </template>
 
 <template name='job_form'>
-  <form class='form-vertical'>
+  <form id='createJob' class='form-vertical'>
     <fieldset>
       <legend>Post a Job</legend>
         <div class='controls'>
-          <input id='post-title' class='span12' type='text' placeholder='Title'/>
+          <input name='title' class='span12' type='text' placeholder='Title'/>
         </div>
 
         <div class='controls'>
-          <input id='post-location' class='span12' type='text' placeholder='Location'/>
+          <input name='location' class='span12' type='text' placeholder='Location'/>
         </div>
 
         <div class='controls'>
-          <textarea id='post-description' class='span12' type='text' placeholder='Description'></textarea>       
+          <textarea name='desc' class='span12' type='text' placeholder='Description'></textarea>
         </div>
 
         <div class='control-group'>
           <label class='radio inline'>
-            <input type='radio' id='post-full-time' name='work-schedule' value='full-time' checked>
+            <input type='radio' id='post-full-time' name='schedule' value='full-time' checked>
             Full-time
           </label>
           <label class='radio inline'>
-            <input type='radio' id='post-part-time' name='work-schedule' value='part-time'>
+            <input type='radio' id='post-part-time' name='schedule' value='part-time'>
             Part-time
           </label>
           <label class='radio inline'>
-            <input type='radio' id='post-other-time' name='work-schedule' value='other'>
+            <input type='radio' id='post-other-time' name='schedule' value='other'>
             Other
           </label>
         </div>
 
         <div class='control-group'>
           <label class='checkbox'>
-            <input id="tele-rb" type='checkbox' value=''/>
+            <input name="telecommutable" type='checkbox' value=''/>
             Telecommutable
           </label>
           <label class='checkbox'>
-            <input id="contract-rb" type='checkbox' value=''/>
+            <input id="contract" type='checkbox' value=''/>
             Contract-based
           </label>
         </div>
 
-        <div class='form-actions'>        
+        <div class='form-actions'>
           <button id='job-form-submit' type='submit' class='btn btn-primary btn-large'>Publish Job Post</button>
         </div>
     </fieldset>

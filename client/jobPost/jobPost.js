@@ -1,20 +1,27 @@
-//ROUTER
-Meteor.Router.add({
-  '/': 'home',
-  '/post-a-job': 'post_a_job'
-});
-
-Meteor.startup(function() {
-  console.log('This is the startup fro the client.js');
-});
-
 var JobPost = {}; // used as a namespace
 
 JobPost.Previews = new Meteor.Collection(null);
 
 Meteor.startup(function() {
 
-  console.log('This is the startup from the job_post directory');
+
+  Regulate.createJob.onSubmit(function (error, data) {
+    $('#createJob input, #createJob textarea').removeClass('redError');
+
+    if (error) {
+      console.log('errors validating', error);
+      _.each(error, function (v, k) {
+        // TODO clean this, put a csss rule for this.
+        $('#createJob [name='+k+']').addClass('redError');
+      });
+    }
+
+    if (data) {
+      Meteor.call('createJob', data, function () {
+        alert('Created the Job. Do something');
+      });
+    }
+  });
 
   JobPost.previewId = JobPost.Previews.insert({
     title: 'Looking for an amazing Meteor developer',
@@ -29,10 +36,6 @@ Meteor.startup(function() {
 });
 
 Template.job_form.events({
-  'click #job-form-submit': function(e) {
-    console.log('Job form was clicked');
-    return false;
-  },
 
   'keyup #post-title': function(e) {
     var title = e.target.value;
