@@ -2,7 +2,7 @@
 	{{#if currentUser}}
 		{{>developerProfileLoggedIn}}
 	{{else}}
-		{{>profileLoggedOut}}
+		{{>userLoggedOut}}
 	{{/if}}
 </template>
 
@@ -20,7 +20,7 @@
 	    	<div class="well span8" id="leftDeveloperContainer">
 	    		<form class="form-inline">
 
-	    			<div id="vResume"><a class="btn btn-small btn-info" type="button" href="profile/{{developer.username}}">View Resume</a></div>
+	    			<div id="vResume"><a class="btn btn-small btn-info" href="profile/{{developer.username}}">View Resume</a></div>
 	    			<h4>Personal Statement / Summary</h4>
 	    			<textarea id="personalStatement" rel="popover" >{{developer.summary}}</textarea> 
 	    			<br/><br/>
@@ -75,10 +75,10 @@
 						</center>
 					</div>
 					{{#if developer.phoneAllow}}
-					<a id="call" class="btn btn-small btn-info allowContact" type="button" href="tel:{{developer.phone}}">Call</a>
+					<a id="call" class="btn btn-small btn-info allowContact" href="tel:{{developer.phone}}">Call</a>
 					{{/if}}
 					{{#if developer.emailAllow}}
-					<a id="email" class="btn btn-small btn-info allowContact" type="button" href="mailto:{{developer.email}}">Email</a>
+					<a id="email" class="btn btn-small btn-info allowContact" href="mailto:{{developer.email}}">Email</a>
 					{{/if}}
 				</div>
 				<div class="well">
@@ -100,6 +100,6 @@
 
 </template>
 
-<template name='profileLoggedOut'>
-	You Logged out! Sorry Nothing To See :(
+<template name='userLoggedOut'>
+	User has been logout. Please login :(
 </template>
