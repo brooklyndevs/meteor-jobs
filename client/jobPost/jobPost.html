@@ -15,15 +15,15 @@
     <fieldset>
       <legend>Post a Job</legend>
         <div class='controls'>
-          <input name='title' class='span12' type='text' placeholder='Title'/>
+          <input id="post-title" name='title' class='span12' type='text' placeholder='Title'/>
         </div>
 
         <div class='controls'>
-          <input name='location' class='span12' type='text' placeholder='Location'/>
+          <input id="post-location" name='location' class='span12' type='text' placeholder='Location'/>
         </div>
 
         <div class='controls'>
-          <textarea name='desc' class='span12' type='text' placeholder='Description'></textarea>
+          <textarea id="post-description" name='desc' class='span12' type='text' placeholder='Description'></textarea>
         </div>
 
         <div class='control-group'>
@@ -69,4 +69,4 @@
   <footer class='small'>
     <p>Posted on {{post.date}}</p>
   </footer>
-</template>
+</template> 
