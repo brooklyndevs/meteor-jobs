@@ -1,0 +1,30 @@
+<template name='allJobs'>
+  <h2>All Jobs</h2>
+
+  <table class='table table-bordered table-striped'>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Location</th>
+        <th>Posted On</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {{#each jobs}}
+      <tr>
+        <td><a href='jobs/{{this._id}}'>{{this.title}}</a></td>
+        <td>{{this.location}}</td>
+        <td>{{this.createdOn}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+
+  </table>
+</template>
+
+<template name='viewJob'>
+  <h2>{{post.title}}</h2>
+  <p>{{post.location}}</p>
+  <p>{{#markdown}}{{post.desc}}{{/markdown}}</p>
+</template>

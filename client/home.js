@@ -28,5 +28,9 @@ Template.home.events({
 			// console.log("login");
 		}
 		
+	},
+
+	'click #viewMoreJobs': function (e) {
+		Meteor.Router.to('/jobs');
 	}
 });
