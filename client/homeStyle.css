@@ -40,7 +40,9 @@ html, body {
 #post-description {
   height: 150px;
 }
-
+.btn{
+  margin-bottom:5px;
+}
 /* Large desktop */
 @media (min-width: 1200px) {
 

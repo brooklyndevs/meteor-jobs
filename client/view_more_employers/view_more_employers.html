@@ -1,14 +1,14 @@
-<template name='viewMoreDevelopers'>
+<template name='viewMoreEmployers'>
 
-		{{>showAllDevelopers}}
+		{{>showAllEmployers}}
 
 </template>
 
 
-<template name='showAllDevelopers'>
+<template name='showAllEmployers'>
 <div class='span10 pull-left'>
     <article>
-    	<h3>Meteor Developers</h3>
+    	<h3>Meteor Employers</h3>
         
         <div class="input-append pull-right hide">
           <input id="appendedInputButtons" type="text" placeholder='Location (e.g: Brooklyn, New York)'>
@@ -18,22 +18,22 @@
         <table class='table table-bordered table-striped'>
           <thead>
           <tr>
-            <th>Name</th>
+            <th>Company</th>
             <th>Location</th>
             <th></th>
           </tr>
           </thead>
-              {{#if featuredAllDevelopers.count}}
-                  {{#each featuredAllDevelopers}}
+              {{#if featuredAllEmployers.count}}
+                  {{#each featuredAllEmployers}}
                   <tr>
                     <td class="span4">
-                      {{name}}
+                      {{company}}
                     </td>
                     <td class="span5">
                       {{address}}
                     </td>
                     <td class="span1">
-						<center><a class='btn btn-primary btn-small' href="/developer/profile/{{username}}">Profile</a></center>
+						          <center><a class='btn btn-primary btn-small' href="/employer/profile/{{username}}">Profile</a></center>
                     </td>
                   </tr>
                   {{/each}}
