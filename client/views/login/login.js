@@ -152,8 +152,3 @@ function obtainGithubLanguages(username, callback){
   });
 
 }
-
-Meteor.autorun(function() {
-  Meteor.subscribe("users");
-  
-});

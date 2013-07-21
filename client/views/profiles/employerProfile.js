@@ -58,15 +58,6 @@ Template.employerProfileLoggedIn.events({
 });
 
 
-Meteor.startup(function() {
-	filepicker.setKey('AbTgGoHxXQ8iuPS3b2mq9z');
-
-});
-
-Meteor.autorun(function() {
-  Meteor.subscribe("employers");
-
-});
 Template.employerProfileLoggedIn.rendered = function (){
   var employer = Employers.findOne({_id:Meteor.userId()});
   var name, email, phone, address, url;

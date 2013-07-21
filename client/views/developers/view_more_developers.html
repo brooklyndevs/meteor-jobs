@@ -1,9 +1,9 @@
-<template name='viewMoreDevelopers'>
+<!-- <template name='viewMoreDevelopers'>
 
 		{{>showAllDevelopers}}
 
 </template>
-
+ -->
 
 <template name='showAllDevelopers'>
 <div class='span10 pull-left'>
@@ -23,8 +23,8 @@
             <th></th>
           </tr>
           </thead>
-              {{#if featuredAllDevelopers.count}}
-                  {{#each featuredAllDevelopers}}
+              {{#if developers}}
+                  {{#each developers}}
                   <tr>
                     <td class="span4">
                       {{name}}
@@ -33,7 +33,7 @@
                       {{address}}
                     </td>
                     <td class="span1">
-						<center><a class='btn btn-primary btn-small' href="/developer/profile/{{username}}">Profile</a></center>
+						        <center><a class='btn btn-primary btn-small' href="/developer/profile/{{username}}">Profile</a></center>
                     </td>
                   </tr>
                   {{/each}}

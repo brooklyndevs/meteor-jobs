@@ -2,6 +2,7 @@
   "packages": {
     "router": {},
     "marked": {},
-    "regulate.js": {}
+    "regulate.js": {},
+    "paginate": {}
   }
 }

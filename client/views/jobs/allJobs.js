@@ -1,6 +1,3 @@
-Deps.autorun(function () {
-  Meteor.subscribe('posts');
-});
 
 Meteor.Router.add({
   '/jobs/:id': function (id) {

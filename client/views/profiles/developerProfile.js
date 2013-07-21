@@ -133,11 +133,6 @@ Template.developerProfileLoggedIn.events({
 
 });
 
-Meteor.autorun(function() {
-  Meteor.subscribe("developers");
-
-});
-
 Template.developerProfileLoggedIn.rendered = function (){
   var dev = Developers.findOne({_id:Meteor.userId()});
   var name, phoneAllow, emailAllow;
