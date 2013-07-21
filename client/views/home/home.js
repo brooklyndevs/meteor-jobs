@@ -33,17 +33,17 @@ Template.home.events({
 		// 	// console.log("login");
 		// }
 
-		Meteor.Router.to('/developers');
+		Meteor.Router.to('/developers/1');
 		
 	},
 	'click #viewMoreJobs': function (e) {
 		Meteor.Router.to('/jobs');
 	},
 	'click #findDevelopersBtn': function (e) {
-		Meteor.Router.to('/developers');
+		Meteor.Router.to('/developers/1');
 	},
 	'click #findEmployersBtn': function(e) {
-		Meteor.Router.to('/employers');
+		Meteor.Router.to('/employers/1');
 	},
 	'click #findJobsBtn': function (e) {
 		Meteor.Router.to('/jobs');

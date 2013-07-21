@@ -25,8 +25,8 @@
       },
       "paginate": {
         "git": "https://github.com/KiqueDev/Meteor-Paginate.git",
-        "tag": "v0.0.2",
-        "commit": "4149a032eb307de691c8054cac155a47bd216490"
+        "tag": "v0.0.4",
+        "commit": "d0aff2bdd2d2c9c38b897ca9c36f8c5fb6bd063c"
       },
       "page-js-ie-support": {
         "git": "https://github.com/tmeasday/meteor-page-js-ie-support.git",

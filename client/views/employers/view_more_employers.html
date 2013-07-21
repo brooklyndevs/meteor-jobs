@@ -1,12 +1,12 @@
-<template name='viewMoreEmployers'>
+<!-- <template name='viewMoreEmployers'>
 
 		{{>showAllEmployers}}
 
-</template>
+</template> -->
 
 
 <template name='showAllEmployers'>
-<div class='span10 pull-left'>
+  <div class='row-fluid'>
     <article>
     	<h3>Meteor Employers</h3>
         
@@ -23,8 +23,8 @@
             <th></th>
           </tr>
           </thead>
-              {{#if featuredAllEmployers.count}}
-                  {{#each featuredAllEmployers}}
+              {{#if employers}}
+                  {{#each employers}}
                   <tr>
                     <td class="span4">
                       {{company}}
@@ -40,5 +40,9 @@
               {{/if}}
         </table>
     </article>
+  </div>
+  <div class="row-fluid">
+  {{> paginate_pages}}
+  </div>
 </template>
 

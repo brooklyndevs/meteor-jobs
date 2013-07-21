@@ -6,7 +6,7 @@
  -->
 
 <template name='showAllDevelopers'>
-<div class='span10 pull-left'>
+  <div class="row-fluid">
     <article>
     	<h3>Meteor Developers</h3>
         
@@ -40,5 +40,9 @@
               {{/if}}
         </table>
     </article>
+  </div>
+   <div class="row-fluid">
+  {{> paginate_pages}}
+  </div>
 </template>
 

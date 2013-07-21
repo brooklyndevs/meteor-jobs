@@ -3,7 +3,7 @@
 // });
 
 
-// // //DEVELOPERS COLLECITONM
+// //DEVELOPERS COLLECITONM
 // Template.showAllDevelopers.developers = function() {
 // 	// var c = Employers.find({}).count();
 // 	// var rand = Math.floor((Math.random()*(c+1))+0);
@@ -11,4 +11,5 @@
 //   	return Developers.find({});
 // };
 
-//var developersPages = new Paginate(Developers, "showAllDevelopers", {perPage:10});
+
+var developersPages = new Paginate(Developers, "showAllDevelopers", {perPage:10});
