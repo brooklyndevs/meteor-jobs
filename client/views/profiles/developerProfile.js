@@ -1,5 +1,5 @@
 Meteor.Router.add({ 
-  '/developer/profile': 'developerProfile'
+  '/developerProfile': 'developerProfile'
 });
 
 //USERS COLLECITONM
@@ -149,7 +149,21 @@ Template.developerProfileLoggedIn.rendered = function (){
   console.log("Rendered profileLoggedIn");
   $("#changeDeveloperName").popover({ title: 'Change Name to:<button class="close" id="closeDevChangeName">&times;</button>', content: '<input type="text" id="changeDevNameText" value="'+name+'"><center><button type="button" class="btn btn-primary" id="confirmDevNameBtn">Change</button></center>', html:'true' });
 
-  $("#personalStatement").popover({ title: 'Write Title', content: 'Write Content', trigger:'focus' });
-  $("#experience").popover({ title: 'Write Title', content: 'Write Content', trigger:'focus' });
+  $("#personalStatement").popover({ placement:"top", content: 'Tell me more about you!', trigger:'focus' });
+  $("#experience").popover({ placement:"top", content: 'I wonder what you got!', trigger:'focus' });
+  $("#skillExpertise").popover({ placement:"top", content: 'Show me your crafting skills!', trigger:'focus' });
+  $("#education").popover({ placement:"top", content: 'Learning is the key of success', trigger:'focus' });
+  $("#additionalInfo").popover({ placement:"top", content: 'More to impress?', trigger:'focus' });
+
+  CheckForCheckboxes("phoneDevProfile", "phoneCheckboxDevProfile", "checkboxPhone");
+  CheckForCheckboxes("emailDevProfile", "emailCheckboxDevProfile", "checkboxEmail");
+
   //initialize();
+}
+
+var CheckForCheckboxes = function(sel1, sel2, sel3){
+  if($("#"+sel1).val().length == 0 ){
+    document.getElementById(sel2).disabled=true;
+    $("."+sel3).css("color","#aaa");
+  }
 }

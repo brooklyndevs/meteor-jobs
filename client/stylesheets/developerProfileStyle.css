@@ -40,7 +40,7 @@
 	height:50px;
 	resize:none;
 }
-#additonalInfo{ 
+#additionalInfo{ 
 	width:98%;
 	height:70px;
 	resize:none;
@@ -56,8 +56,11 @@
 	height:20px;
 	margin-right:20%;
 }
-#emailCheclboxDevProfile, #phoneCheclboxDevProfile{
-	margin-left:5px;
+#emailCheckboxDevProfile, #phoneCheckboxDevProfile{
+	margin-top:-5px;
+}
+.checkboxPhone, .checkboxEmail{
+	margin-top:5px;
 }
 #viewContact li{
 	display:inline;

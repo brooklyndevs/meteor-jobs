@@ -1,5 +1,5 @@
 Meteor.Router.add({ 
-  '/employer/profile': 'employerProfile'
+  '/employerProfile': 'employerProfile'
 });
 
 //USERS COLLECITONM
@@ -35,25 +35,37 @@ Template.employerProfileLoggedIn.events({
       });
     });
   },
-  'click #closeEmployerChangeContact': function(e) {
-      $('#changeEmployerContact').popover('hide');
+  'keyup #emailEmpProfile': function(e) {
+    var email = e.target.value;
+    Employers.update({_id:Meteor.userId()}, {
+      $set: {
+        email:email
+      }
+    });
   },
-  'click #confirmEmployerContactBtn': function(e) {
-      var email = $("#changeEmployerEmailText").val();
-      var phone = $("#changeEmployerPhoneText").val();
-      var url = $("#changeEmployerURLText").val();
-      var address = $("#changeEmployerAddressText").val();
-
-      Employers.update({_id:Meteor.userId()}, {
-        $set: {
-          email:email,
-          phone:phone,
-          url:url,
-          address:address
-
-        }
-      });
-      $('#changeEmployerContact').popover('hide');
+  'keyup #phoneEmpProfile': function(e) {
+    var phone = e.target.value;
+    Employers.update({_id:Meteor.userId()}, {
+      $set: {
+        phone:phone
+      }
+    });
+  },
+  'keyup #addressEmpProfile': function(e) {
+    var address = e.target.value;
+    Employers.update({_id:Meteor.userId()}, {
+      $set: {
+        address:address
+      }
+    });
+  },
+  'keyup #urlEmpProfile': function(e) {
+    var url = e.target.value;
+    Employers.update({_id:Meteor.userId()}, {
+      $set: {
+        url:url
+      }
+    });
   }
 });
 
@@ -71,5 +83,5 @@ Template.employerProfileLoggedIn.rendered = function (){
   console.log(name);
   $("#changeEmployerName").popover({ title: 'Changes<button class="close" id="closeEmployerChangeName">&times;</button>', content: 'Name:<input type="text" id="changeEmployerNameText" value="'+name+'"><center><button type="button" class="btn btn-primary" id="confirmEmployerNameBtn">Change name</button><br/><br/><button type="button" class="btn btn-primary" id="changeLogoBtn">Change Logo</button></center>', html:'true' });
   
-  $("#changeEmployerContact").popover({ placement:'left', title: 'Edit<button class="close" id="closeEmployerChangeContact">&times;</button>', content: 'Email:<input type="text" id="changeEmployerEmailText" value="'+email+'">Phone:<input type="text" id="changeEmployerPhoneText" value="'+phone+'"><br/>URL:<br/><input type="text" id="changeEmployerURLText" value="'+url+'">Address:<input type="text" id="changeEmployerAddressText" value="'+address+'"><center><button type="button" class="btn btn-primary" id="confirmEmployerContactBtn">Change</button>', html:'true' });
+  // $("#changeEmployerContact").popover({ placement:'top', title: 'Edit<button class="close" id="closeEmployerChangeContact">&times;</button>', content: 'Email:<input type="text" id="changeEmployerEmailText" value="'+email+'">Phone:<input type="text" id="changeEmployerPhoneText" value="'+phone+'"><br/>URL:<br/><input type="text" id="changeEmployerURLText" value="'+url+'">Address:<input type="text" id="changeEmployerAddressText" value="'+address+'"><center><button type="button" class="btn btn-primary" id="confirmEmployerContactBtn">Change</button>', html:'true' });
 }

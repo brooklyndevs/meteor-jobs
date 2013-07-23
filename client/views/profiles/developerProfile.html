@@ -20,7 +20,7 @@
 	    	<div class="well span8" id="leftDeveloperContainer">
 	    		<form class="form-inline">
 
-	    			<div id="vResume"><a class="btn btn-small btn-info" href="profile/{{developer.username}}">View Resume</a></div>
+	    			<div id="vResume"><a class="btn btn-small btn-info" href="./developer/profile/{{developer.username}}">View Resume</a></div>
 	    			<h4>Personal Statement / Summary</h4>
 	    			<textarea id="personalStatement" rel="popover" >{{developer.summary}}</textarea> 
 	    			<br/><br/>
@@ -35,15 +35,15 @@
 	    			<br/><br/>
 	    			<h4>Contacts</h4>
 	    			<h5>Email:</h5>
-	    			<input type="text" id="emailDevProfile" value="{{developer.email}}">
-					<label class="checkbox">
-						<input id="emailCheckboxDevProfile" type="checkbox" >Allow users to email you.
+	    			<input type="email" id="emailDevProfile" value="{{developer.email}}">
+					<label class="checkboxEmail">
+						<input id="emailCheckboxDevProfile" type="checkbox" > Allow users to email you.
 					</label>
 	    			<br/>
 	    			<h5>Phone:</h5>
-	    			<input type="text" id="phoneDevProfile" value="{{developer.phone}}" placeholder='(Optional)'>
-					<label class="checkbox">
-						<input id="phoneCheckboxDevProfile" type="checkbox">Allow users to call you.
+	    			<input type="number" id="phoneDevProfile" value="{{developer.phone}}" placeholder='(Optional)'>
+					<label class="checkboxPhone">
+						<input id="phoneCheckboxDevProfile" type="checkbox"> Allow users to call you.
 					</label>
 	    			<br/>
 	    			<h5>Address:</h5>
@@ -52,7 +52,7 @@
 	    			<input type="text" id="urlDevProfile" value="{{developer.url}}" placeholder='(Optional)'><br/>
 	    			<br/><br/>
 	    			<h4>Additional Info</h4>
-	    			<textarea id="additonalInfo">{{developer.additional}}</textarea> 
+	    			<textarea id="additionalInfo">{{developer.additional}}</textarea> 
 	    			
 	    		</form>
 	      	
@@ -60,7 +60,7 @@
 
 	    	<div class="well span4" id="rightDeveloperContainer">
 
-	    		<h4><a href="profile/{{developer.username}}">View Resume </a></h4>
+	    		<h4><a href="./developer/profile/{{developer.username}}">View Resume </a></h4>
 	    		<div class="well">
 					<img src="{{user.avatarUrl}}" width="50" height="50" id="avatarView">
 					<div id="viewHeader">

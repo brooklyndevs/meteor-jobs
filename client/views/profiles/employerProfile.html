@@ -20,7 +20,7 @@
 			
 	
 		<div class="row">
-			<div class="well span8" id="leftContainer">
+			<div class="well span9" id="leftContainer">
 				<div id="addJobPostinProfile"><a class="btn btn-small btn-info" type="button" href="#">Add a Post</a></div>
 		    	<h5>"{{employer.company}}" Job Posts</h5>
 		        <table class='table table-bordered table-striped'>
@@ -55,19 +55,17 @@
 	          
 	        	</table>
 		   	</div>
-		   	<div class="well span4" id="rightContainer">
+		   	<div class="well span3" id="rightContainer">
 
-			   	<div class="span10"><h4>Contact</h4></div>
-			   	<div class="span2" id="edit"><a id="changeEmployerContact" rel="popover" href=""><u>Edit</u></a></div>
+			    <h4>Contact</h4>
+<!-- 			   	<div class="span2" id="edit"><a id="changeEmployerContact" rel="popover" href=""><u>Edit</u></a></div> -->
 
 				<div id="employerContactInfo">
-			   	<center>
-			   		<h6>{{employer.email}}</h6>
-			        <h6>{{employer.phone}}</h6>
-			        <h6><a href="{{employer.url}}" target="_blank">{{employer.url}}</a></h6>
-			        <h6>{{employer.address}}</h6>
-			    </center>
-				</div>
+			   		<input class="span12"  id="emailEmpProfile" type="email" value="{{employer.email}}" placeholder="Email">
+			   		<input class="span12" id="phoneEmpProfile" type="number" value="{{employer.phone}}" placeholder="Phone">
+			   		<input class="span12" id="addressEmpProfile" type="text" value="{{employer.address}}" placeholder="Address">
+			   		<input class="span12" id="urlEmpProfile" type="text" value="{{employer.url}}" placeholder="Url">
+			    </div>
 		   	</div>
 
 	   	</div>

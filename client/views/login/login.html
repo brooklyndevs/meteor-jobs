@@ -5,10 +5,10 @@
 		Welcome, 
 		{{#if roles}}
 			<img src="{{user.avatarUrl}}" width="50" height="50" id="avatar">
-			<a id="profile" href="/developer/profile"> {{user.username}} </a>
+			<a id="profile" href="/developerProfile"> {{user.username}} </a>
 		{{else}}
 			<img src="{{employer.avatarUrl}}" width="50" height="50" id="avatar">
-			<a id="profile" href="/employer/profile"> {{user.username}} </a>
+			<a id="profile" href="/employerProfile"> {{user.username}} </a>
 		{{/if}}
 	</div>
   	<button type='button' class='btn' id="logoutBtn" >Log out</button>

@@ -10,7 +10,7 @@
 			
 	
 		<div class="row">
-			<div class="well span8" id="leftContainer">
+			<div class="well span9" id="leftContainer">
 		    	<h5>"{{employer.company}}" Job Posts</h5>
 		        <table class='table table-bordered table-striped'>
 		        <thead>
@@ -44,17 +44,23 @@
 	          
 	        	</table>
 		   	</div>
-		   	<div class="well span4" id="rightContainer">
+		   	<div class="well container span3" id="rightContainer">
 
-			   	<div class="span10"><h4>Contact</h4></div>		
-			   	<div id="employerPublicContactInfo">
-			   	<center>
-			   		<h6>{{employer.email}}</h6>
-			        <h6>{{employer.phone}}</h6>
-			        <h6><a href="{{employer.url}}" target="_blank">{{employer.url}}</a></h6>
-			        <h6>{{employer.address}}</h6>
-			    </center>
+
+			   	<div class="span12"><h4>Contact</h4></div>	
+			   	<div  class="pull-left">
+			   		<div class="empContact"><b>Email:</b></div>
+					<div class="empContact"><b>Phone:</b></div>
+					<div class="empContact"><b>URL:</b></div>
+					<div class="empContact"><b>Address:</b></div>
+				</div>	
+			   	<div id="employerPublicContactInfo" class="pull-right">
+			   		<div class="empContact">{{employer.email}}</div>
+			        <div class="empContact">{{employer.phone}}</div>
+			        <div class="empContact"><a href="{{employer.url}}" target="_blank">{{employer.url}}</a></div>
+			        <div class="empContact">{{employer.address}}</div>
 				</div>
+
 		   	</div>
 
 	   	</div>
