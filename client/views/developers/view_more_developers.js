@@ -11,5 +11,4 @@
 //   	return Developers.find({});
 // };
 
-
 var developersPages = new Paginate(Developers, "showAllDevelopers", {perPage:10});

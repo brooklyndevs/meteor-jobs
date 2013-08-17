@@ -1,7 +1,10 @@
 {
   "packages": {
     "router": {},
-    "marked": {},
+    "marked": {
+    	    "git": "https://github.com/chuangbo/meteor-marked.git",
+    		"branch": "master"
+    	},
     "regulate.js": {},
     "paginate": {}
   }

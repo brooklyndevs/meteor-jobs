@@ -14,3 +14,7 @@ accounts-password
 bootstrap
 router
 regulate.js
+standard-app-packages
+marked
+page-js-ie-support
+paginate
